@@ -31,8 +31,6 @@
 
 .door {
   color: var(--text-danger);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--text-warning);
 }
 
 .headingSecondary {
