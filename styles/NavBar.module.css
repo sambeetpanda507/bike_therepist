@@ -106,6 +106,12 @@
   }
 }
 
+@media (max-width: 450px){
+  .logo{
+    margin-left: 2%;
+  }
+}
+
 @media (max-width: 350px) {
   .brand {
     flex-basis: 70%;
