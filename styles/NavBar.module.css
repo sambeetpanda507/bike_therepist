@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+.myNav {
+  width: 100%;
+  min-height: 80px;
+}
+
+.navContainer {
+  width: 100%;
+  min-height: 80px;
+  padding: 0 0;
+  list-style: none;
+  background-color: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.navContainer li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  flex-basis: 15%;
+  clip-path: polygon(100% 0, 80% 50%, 100% 100%, 0 100%, 0 0);
+  background-color: var(--bg-warning);
+  position: relative;
+  justify-content: flex-start !important;
+  align-self: stretch;
+  padding-left: 1%;
+}
+.logo {
+  font-size: 2.5rem;
+}
+
+.logoStyle {
+  font-family: "Dancing Script", cursive;
+}
+
+.logo strong {
+  color: var(--text-danger);
+}
+
+.navLink {
+  color: var(--bg-warning);
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
+.searchBtn {
+  flex-basis: 14%;
+  justify-content: space-around !important;
+}
+.searchBtn i {
+  color: var(--bg-warning);
+  cursor: pointer;
+}
+.searchBtn button {
+  background-color: var(--bg-warning);
+  border: 0;
+  font-size: 2rem;
+  text-transform: capitalize;
+  width: 12rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+
+.menu {
+  display: none !important;
+}
+
+/* ///////media queries//////// */
+@media (max-width: 1200px) and (min-width: 901px) {
+  .brand {
+    flex-basis: 20%;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand {
+    flex-basis: 50%;
+  }
+  .navLink,
+  .searchBtn {
+    display: none !important;
+  }
+  .menu {
+    display: inline-block !important;
+    margin-right: 1rem;
+  }
+  .hamburger {
+    height: 2.5rem;
+    width: 5rem;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hamburger div {
+    height: 0.5rem;
+    width: 90%;
+    background-color: var(--bg-warning);
+  }
+}
+
+@media (max-width: 350px) {
+  .brand {
+    flex-basis: 70%;
+  }
+}
