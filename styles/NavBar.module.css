@@ -106,9 +106,9 @@
   }
 }
 
-@media (max-width: 450px){
-  .logo{
-    margin-left: 2%;
+@media (max-width: 450px) {
+  .logo {
+    margin-left: 1%;
   }
 }
 
