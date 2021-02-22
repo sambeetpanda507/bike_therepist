@@ -1,0 +1,63 @@
+.landing {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url("/landing.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.headingPrimary,
+.headingSecondary {
+  text-shadow: 0 2rem 2rem #333;
+}
+
+.headingPrimary {
+  color: var(--text-white);
+  font-size: 8rem;
+  text-transform: capitalize;
+}
+
+.mechanic {
+  font-family: "Dancing Script", cursive;
+  color: var(--text-warning);
+}
+
+.door {
+  color: var(--text-danger);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--text-warning);
+}
+
+.headingSecondary {
+  color: var(--text-white);
+  font-size: 6rem;
+  text-transform: capitalize;
+  color: var(--text-white);
+}
+
+.button button {
+  border: 0;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 2rem;
+  font-size: 2rem;
+  text-transform: capitalize;
+  background-color: var(--bg-warning);
+  margin-top: 1rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.button button:hover {
+  background-color: var(--nav-bg);
+  color: var(--text-white);
+}

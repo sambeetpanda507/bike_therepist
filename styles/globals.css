@@ -1,19 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Archivo Narrow", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 :root {
   --nav-bg: #252509;
   --bg-warning: #f9ff00;
   --text-danger: red;
+  --text-warning: #f9ff00;
+  --text-white: #fff;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 40%;
+  }
 }
 
 body {
