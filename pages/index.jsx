@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Landing from "../components/Landing";
 import BookServices from "../components/BookService";
+import OurServices from "../components/OurServices";
 export default function Home() {
   return (
     <section id="home">
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <Landing />
       <BookServices />
+      <OurServices />
     </section>
   );
 }

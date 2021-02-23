@@ -69,13 +69,17 @@
   color: var(--text-warning);
 }
 .detailsContainer {
-  flex-basis: 50%;
+  flex-basis: 48%;
   display: flex;
   flex-direction: column;
 }
 
+.detailsContainer:nth-child(1) {
+  margin-right: 2%;
+}
+
 .detailsContainer select {
-  width: 90%;
+  width: 100%;
   height: 3.5rem;
   text-transform: capitalize;
 }
