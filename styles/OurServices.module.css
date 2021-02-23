@@ -33,7 +33,7 @@
 .serviceContainer {
   width: 18rem;
   height: 30rem;
-  border-radius: 40%;
+  border-radius: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
