@@ -10,8 +10,9 @@
   font-size: 6rem;
   color: var(--text-white);
   text-transform: capitalize;
-  text-align: center;
+  text-align: left;
   text-shadow: 0rem 1rem 1rem #000;
+  margin-bottom: 2%;
 }
 
 .bike {
@@ -32,12 +33,19 @@
   flex-basis: 50%;
   flex-grow: 1;
 }
-
+.imgContainer {
+  display: flex;
+  align-items: flex-end;
+}
 .imgContainer img {
-  height: 100%;
+  height: 80%;
   width: 100%;
 }
-
+.actualContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .actualContent p {
   font-size: 2rem;
   color: var(--text-white);
@@ -56,8 +64,32 @@
   font-size: 1.6rem;
   cursor: pointer;
 }
+.hideLg {
+  display: block;
+}
+
+.showMd {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .primaryHeading {
+    font-size: 4rem;
+  }
+}
 
 @media (max-width: 900px) {
+  .imgContainer {
+    display: flex;
+    align-items: flex-start;
+  }
+  .hideLg {
+    display: none;
+  }
+  .showMd {
+    display: block;
+    text-align: center !important;
+  }
   .containerContent div {
     flex-basis: 100%;
   }
