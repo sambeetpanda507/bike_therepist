@@ -79,3 +79,15 @@
   text-transform: uppercase;
   font-weight: bold;
 }
+
+@media (max-width: 900px) and (min-width: 501px) {
+  .serviceContainer {
+    flex-basis: 35%;
+  }
+}
+
+@media (max-width: 500px) {
+  .serviceContainer {
+    flex-basis: 30%;
+  }
+}

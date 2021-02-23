@@ -37,8 +37,7 @@
   height: 100%;
   width: 100%;
 }
-.actualContent {
-}
+
 .actualContent p {
   font-size: 2rem;
   color: var(--text-white);
@@ -56,4 +55,13 @@
   text-transform: capitalize;
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .containerContent div {
+    flex-basis: 100%;
+  }
+  .actualContent {
+    order: 1;
+  }
 }
