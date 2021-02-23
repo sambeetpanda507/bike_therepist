@@ -1,4 +1,4 @@
-import style from "../styles/OurServices.module.css";
+import style from "../../styles/OurServices.module.css";
 
 const serviceData = [
   {

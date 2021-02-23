@@ -1,4 +1,4 @@
-import style from "../styles/Landing.module.css";
+import style from "../../styles/Landing.module.css";
 
 const Landing = () => {
   return (

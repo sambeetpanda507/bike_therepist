@@ -1,0 +1,59 @@
+.aboutBike {
+  width: 100%;
+  background-color: #333;
+}
+.container {
+  width: 100%;
+  padding: 5%;
+}
+.primaryHeading {
+  font-size: 6rem;
+  color: var(--text-white);
+  text-transform: capitalize;
+  text-align: center;
+  text-shadow: 0rem 1rem 1rem #000;
+}
+
+.bike {
+  font-family: "Dancing Script", cursive;
+  color: var(--bg-warning);
+}
+
+.textDanger {
+  color: var(--text-danger);
+}
+
+.containerContent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.containerContent div {
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.imgContainer img {
+  height: 100%;
+  width: 100%;
+}
+.actualContent {
+}
+.actualContent p {
+  font-size: 2rem;
+  color: var(--text-white);
+  font-weight: 100;
+  line-height: 3rem;
+  letter-spacing: 0.2rem;
+}
+.btnGrp button {
+  border: 0;
+  outline: none;
+  height: 3rem;
+  width: 10rem;
+  background-color: var(--bg-warning);
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  cursor: pointer;
+}

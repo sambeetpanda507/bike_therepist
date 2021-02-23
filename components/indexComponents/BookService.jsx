@@ -1,4 +1,4 @@
-import bookStyle from "../styles/BookService.module.css";
+import bookStyle from "../../styles/BookService.module.css";
 const BookService = () => {
   return (
     <section className={bookStyle.book} id="book">
