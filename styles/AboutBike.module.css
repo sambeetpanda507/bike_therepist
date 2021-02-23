@@ -53,6 +53,9 @@
   line-height: 3rem;
   letter-spacing: 0.2rem;
 }
+.btnGrp {
+  margin-top: 2%;
+}
 .btnGrp button {
   border: 0;
   outline: none;
