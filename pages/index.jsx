@@ -3,6 +3,8 @@ import Landing from "../components/indexComponents/Landing";
 import BookServices from "../components/indexComponents/BookService";
 import OurServices from "../components/indexComponents/OurServices";
 import AboutBike from "../components/indexComponents/AboutBike";
+import BookNow from "../components/indexComponents/BookNow";
+
 export default function Home() {
   return (
     <section id="home">
@@ -17,6 +19,7 @@ export default function Home() {
       <BookServices />
       <OurServices />
       <AboutBike />
+      <BookNow />
     </section>
   );
 }
