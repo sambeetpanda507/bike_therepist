@@ -35,8 +35,9 @@ const CarouselItems = () => {
         <div className="carousel-item active">
           <div>
             <p className={style.carouselTitle}>
-              <u>Lorem Ipsum is simply dummy text of the printing</u>
+              Lorem Ipsum is simply dummy text of the printing
             </p>
+            <hr className={style.titleUnderline} />
             <p className={style.carouselContent}>
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
@@ -50,8 +51,9 @@ const CarouselItems = () => {
         <div className="carousel-item">
           <div>
             <p className={style.carouselTitle}>
-              <u>Lorem Ipsum is simply dummy text of the printing</u>
+              Lorem Ipsum is simply dummy text of the printing
             </p>
+            <hr className={style.titleUnderline} />
             <p className={style.carouselContent}>
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
@@ -65,8 +67,9 @@ const CarouselItems = () => {
         <div className="carousel-item">
           <div>
             <p className={style.carouselTitle}>
-              <u>Lorem Ipsum is simply dummy text of the printing</u>
+              Lorem Ipsum is simply dummy text of the printing
             </p>
+            <hr className={style.titleUnderline} />
             <p className={style.carouselContent}>
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by

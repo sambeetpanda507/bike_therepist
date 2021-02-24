@@ -60,9 +60,11 @@
 .searchBtn button {
   background-color: var(--bg-warning);
   border: 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
   text-transform: capitalize;
   width: 12rem;
+  height: 3.5rem;
   cursor: pointer;
   border-radius: 0.4rem;
 }
