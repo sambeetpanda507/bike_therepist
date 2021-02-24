@@ -10,9 +10,9 @@
 :root {
   --nav-bg: #252509;
   --bg-warning: #fdd600;
-  --bg-danger: red;
+  --bg-danger: #ff4d00;
   --bg-white: white;
-  --text-danger: red;
+  --text-danger: #ff4d00;
   --text-warning: #f9ff00;
   --text-white: #fff;
 }
