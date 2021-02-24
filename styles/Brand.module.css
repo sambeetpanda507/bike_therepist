@@ -10,8 +10,6 @@
   font-size: 6rem;
   text-transform: capitalize;
   text-align: center;
-  -webkit-text-stroke-width: 0.2rem;
-  -webkit-text-stroke-color: var(--text-danger);
 }
 
 .brands {

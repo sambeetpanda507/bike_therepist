@@ -9,7 +9,7 @@
 
 .container {
   width: 100%;
-  padding: 5%;
+  padding: 4%;
 }
 .headingPrimary,
 .bgWarning {
@@ -26,13 +26,13 @@
 .serviceSection {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 2rem 0;
 }
 .serviceContainer {
-  width: 18rem;
-  height: 30rem;
+  width: 16rem;
+  height: 32rem;
   border-radius: 40rem;
   display: flex;
   flex-direction: column;
@@ -43,10 +43,11 @@
 }
 
 .iconImg {
-  height: 15rem;
-  width: 15rem;
+  height: 17rem;
+  width: 17rem;
   border-radius: 50%;
   position: relative;
+  margin-top: -0.5rem;
 }
 
 .iconImg img {
@@ -56,16 +57,17 @@
   left: -8%;
 }
 .serviceCount {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: -4rem;
 }
 .serviceContent {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
   text-transform: capitalize;
   word-wrap: break-word;
   width: 70%;
   text-align: center;
+  margin-top: -1rem;
 }
 
 .serviceContainer hr {
@@ -78,6 +80,7 @@
   font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: bold;
+  margin-top: -2rem;
 }
 
 @media (max-width: 900px) and (min-width: 501px) {

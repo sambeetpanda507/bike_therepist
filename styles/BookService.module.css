@@ -45,13 +45,13 @@
 .progressBarWrapper {
   height: 1.3rem;
   width: 90%;
-  border: 1px solid var(--bg-warning);
-  border-radius: 1rem;
+  /* border: 1px solid var(--bg-warning); */
 }
 .progressBarWrapper p {
   height: 100%;
   width: 100%;
   background-color: var(--bg-warning);
+  border-radius: 1rem;
 }
 .secondayHeading {
   color: var(--text-white);
@@ -59,6 +59,7 @@
   font-size: 3.5rem;
   text-shadow: 0rem 1rem 1rem #000;
   font-weight: 400;
+  margin-top: 2rem;
 }
 .detailsSection {
   padding: 2rem 0;
@@ -82,6 +83,7 @@
   width: 100%;
   height: 3.5rem;
   text-transform: capitalize;
+  border-radius: 5px;
 }
 
 .nextBtn {
@@ -92,13 +94,14 @@
 .nextBtn button {
   border: 0;
   outline: none;
-  height: 3rem;
-  width: 10rem;
+  height: 3.5rem;
+  width: 12rem;
   background-color: var(--bg-warning);
   border-radius: 0.5rem;
   text-transform: capitalize;
   font-size: 1.6rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 /* /////media queries//// */

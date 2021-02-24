@@ -17,7 +17,8 @@ const OurClient = () => {
             <li className={style.carouselItem}>
               <div>
                 <p className={style.carouselTitle}>
-                  <u>Lorem Ipsum is simply dummy text of the printing</u>
+                  Lorem Ipsum is simply dummy text of the printing
+                  <hr />
                 </p>
                 <p className={style.carouselContent}>
                   There are many variations of passages of Lorem Ipsum

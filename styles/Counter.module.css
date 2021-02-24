@@ -9,7 +9,7 @@
 
 .containerDiv {
   width: 100%;
-  padding: 10% 5%;
+  padding: 8% 5%;
 }
 
 .primaryHeading {
@@ -29,8 +29,9 @@
   text-align: center;
 }
 .actualCount {
-  font-size: 5rem;
+  font-size: 7rem;
   color: var(--text-warning);
+  font-weight: bold;
 }
 .countDesc {
   font-size: 3rem;
