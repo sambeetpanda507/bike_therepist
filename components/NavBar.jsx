@@ -1,7 +1,14 @@
 import Link from "next/link";
+import {useState} from 'react';
 import navStyle from "../styles/NavBar.module.css";
 
 const NavBar = () => {
+  const [control,setControl]=useState(false);
+  
+  const handleControl=()=>{
+    setControl((prev) => !prev);
+  }
+
   return (
     <nav className={navStyle.myNav}>
       <ul className={navStyle.navContainer}>
@@ -52,13 +59,29 @@ const NavBar = () => {
           <i className="fas fa-search fa-2x"></i>
           <button>book service</button>
         </li>
+
         <li className={navStyle.menu}>
-          <div className={navStyle.hamburger}>
+         
+        <div className={`${navStyle.curtain} ${control ? navStyle.active:""}`}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        </div>
+      
+          <div className={navStyle.hamburger} onClick={handleControl}>
             <div>-</div>
             <div>-</div>
             <div>-</div>
           </div>
         </li>
+      
       </ul>
     </nav>
   );
