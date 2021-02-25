@@ -67,11 +67,41 @@ const NavBar = () => {
         <span></span>
         <span></span>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>
+              <Link href="/">
+              <a>Home</a>
+              </Link>
+            </li>
+            <li>
+            <Link href="/about">
+            <a>About Us</a>
+            </Link>
+            </li>
+            <li>
+            <Link href="/services">
+            <a>Services</a>
+            </Link>
+            </li>
+            <li>
+            <Link href="/how-it-works">
+            <a>How It Works ?</a>
+            </Link>
+            </li>
+            <li>
+            <Link href="/pricing">
+            <a>Pricing</a>
+          </Link>
+            </li>
+            <li>
+            <Link href="/contact-us">
+            <a>Contact Us</a>
+          </Link>
+            </li>
+            <li>
+            <Link href="/blog">
+            <a>Blog</a>
+            </Link>
+            </li>
         </ul>
         </div>
       
