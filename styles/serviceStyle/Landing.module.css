@@ -69,27 +69,7 @@
 .card::after {
   background: linear-gradient(235deg, #89ff00, #060c31, #00bcd4);
   animation-name: borderBlur;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
 }
-@keyframes borderBlur {
-  0% {
-    background: linear-gradient(12deg, #89ff00, #060c31, #00bcd4);
-  }
-  25% {
-    background: linear-gradient(100deg, #89ff00, #060c31, #00bcd4);
-  }
-  50% {
-    background: linear-gradient(200deg, #89ff00, #060c31, #00bcd4);
-  }
-  75% {
-    background: linear-gradient(292, #89ff00, #060c31, #00bcd4);
-  }
-  100% {
-    background: linear-gradient(360deg, #89ff00, #060c31, #00bcd4);
-  }
-}
-
 @media (max-width: 600px) {
   .card {
     flex-basis: 100%;
