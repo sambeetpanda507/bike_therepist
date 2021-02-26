@@ -11,8 +11,8 @@ const AboutBike = () => {
         <div className={style.containerContent}>
           <div className={style.actualContent}>
             <h1 className={`${style.primaryHeading} ${style.hideLg}`}>
-              about <span className={style.bike}>bike</span>{" "}
-              <span className={style.textDanger}>therapist</span>
+              about <span className={style.bike}>bike</span>
+              <span className={style.textDanger}>Therapist</span>
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,

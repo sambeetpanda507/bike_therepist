@@ -23,7 +23,7 @@
 }
 .number {
   font-size: 3rem;
-  color: var(--text-danger);
+  color: var(--bg-danger);
   stroke-width: 0.1rem;
   /* -webkit-text-stroke-width: 0.1rem;
   -webkit-text-stroke-color: var(--text-warning); */

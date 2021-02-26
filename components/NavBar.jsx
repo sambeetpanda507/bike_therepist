@@ -69,37 +69,37 @@ const NavBar = () => {
         <ul>
             <li>
               <Link href="/">
-              <a>Home</a>
+              <a onClick={handleControl}>Home</a>
               </Link>
             </li>
             <li>
             <Link href="/about">
-            <a>About Us</a>
+            <a onClick={handleControl}>About Us</a>
             </Link>
             </li>
             <li>
             <Link href="/services">
-            <a>Services</a>
+            <a onClick={handleControl}>Services</a>
             </Link>
             </li>
             <li>
             <Link href="/how-it-works">
-            <a>How It Works ?</a>
+            <a onClick={handleControl}>How It Works ?</a>
             </Link>
             </li>
             <li>
             <Link href="/pricing">
-            <a>Pricing</a>
+            <a onClick={handleControl}>Pricing</a>
           </Link>
             </li>
             <li>
             <Link href="/contact-us">
-            <a>Contact Us</a>
+            <a onClick={handleControl}>Contact Us</a>
           </Link>
             </li>
             <li>
             <Link href="/blog">
-            <a>Blog</a>
+            <a onClick={handleControl}>Blog</a>
             </Link>
             </li>
         </ul>

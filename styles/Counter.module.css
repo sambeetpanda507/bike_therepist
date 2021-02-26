@@ -35,7 +35,7 @@
 }
 .countDesc {
   font-size: 3rem;
-  color: var(--text-danger);
+  color: var(--bg-danger);
 }
 
 @media (max-width: 500px) {

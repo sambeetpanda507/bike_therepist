@@ -50,8 +50,8 @@ const Footer = () => {
       </div>
       <div className={style.footerContent}>
         <h1 className={style.why}>
-          why <span className={style.bike}>bike</span>{" "}
-          <span className={style.therapist}>theparist</span> ?
+          why <span className={style.bike}>bike</span>{""}
+          <span className={style.therapist}>Theparist</span> ?
         </h1>
         <div className={style.footerCardContainer}>
           {/* footer-card: start */}

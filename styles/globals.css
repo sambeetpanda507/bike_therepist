@@ -12,7 +12,7 @@
   --bg-warning: #fdd600;
   --bg-danger: #ff4d00;
   --bg-white: white;
-  --text-danger: #ff4d00;
+  --text-danger: red;
   --text-warning: #fdd600;
   --text-white: #fff;
 }
