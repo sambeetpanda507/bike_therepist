@@ -49,6 +49,9 @@
   text-transform: capitalize;
   font-size: 2rem;
 }
+.navLink a:hover{
+  color: var(--text-danger);
+}
 
 .searchBtn {
   flex-basis: 14%;
@@ -57,6 +60,9 @@
 .searchBtn i {
   color: var(--bg-warning);
   cursor: pointer;
+}
+.searchBtn i:hover{
+  color: var(--text-danger);
 }
 .searchBtn button {
   background-color: var(--bg-warning);
