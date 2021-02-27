@@ -85,7 +85,7 @@
 
 @media (max-width: 900px) and (min-width: 501px) {
   .serviceContainer {
-    flex-basis: 35%;
+    flex-basis: 20%;
   }
 }
 

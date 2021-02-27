@@ -80,7 +80,7 @@
   display: none !important;
 }
 
-.curtain{
+.curtain {
   position: fixed;
   top: 0;
   left: 0;
@@ -91,8 +91,9 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  z-index: 1;
 }
-.curtain span{
+.curtain span {
   position: absolute;
   top: 0;
   left: 0;
@@ -103,40 +104,40 @@
   transition: 0.5s ease-in-out;
   transform: rotate(-90deg);
 }
-.curtain span:nth-child(1){
+.curtain span:nth-child(1) {
   background-color: red;
   transform: rotate(-90deg);
   transition-delay: 0.2s;
 }
-.curtain span:nth-child(2){
+.curtain span:nth-child(2) {
   background-color: yellow;
   transform: rotate(-90deg);
   transition-delay: 0.1s;
 }
-.curtain span:nth-child(3){
+.curtain span:nth-child(3) {
   background-color: #111;
   transform: rotate(-90deg);
   transition-delay: 0s;
 }
-.active{
+.active {
   visibility: visible;
 }
-.curtain.active span:nth-child(1){
+.curtain.active span:nth-child(1) {
   z-index: 1;
   transition-delay: 0s;
 }
-.curtain.active span:nth-child(2){
+.curtain.active span:nth-child(2) {
   z-index: 2;
   transition-delay: 0.1s;
 }
-.curtain.active span:nth-child(3){
+.curtain.active span:nth-child(3) {
   z-index: 3;
   transition-delay: 0.2s;
 }
-.curtain.active span{
+.curtain.active span {
   transform: rotate(0deg);
 }
-.curtain ul{
+.curtain ul {
   position: absolute;
   z-index: 100;
   transition: 0.5s;
@@ -144,16 +145,16 @@
   opacity: 0;
   transition-delay: 0s;
 }
-.curtain.active ul{
+.curtain.active ul {
   visibility: visible;
   opacity: 1;
   transition-delay: 0.7s;
 }
-.curtain ul li{
+.curtain ul li {
   list-style: none;
   margin: 10px 0;
-}   
-.curtain ul li a{
+}
+.curtain ul li a {
   text-decoration: none;
   color: white;
   font-size: 4em;
