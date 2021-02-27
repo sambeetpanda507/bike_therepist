@@ -1,5 +1,18 @@
 import Head from "next/head";
-import Landing from "../components/howItWorks/Landing";
+import dynamic from "next/dynamic";
+import style from "../styles/howItWorks/Landing.module.css";
+
+const Model = dynamic(() => import("../components/howItWorks/Landing"), {
+  ssr: false,
+  loading: () => {
+    return (
+      <div className={style.loading}>
+        <img src="/preloader.gif" alt="preloader" />
+      </div>
+    );
+  },
+});
+
 const HowItWorks = () => {
   return (
     <section id="how">
@@ -10,7 +23,7 @@ const HowItWorks = () => {
         />
         <title>How It Works ?</title>
       </Head>
-      <Landing />
+      <Model />
     </section>
   );
 };
