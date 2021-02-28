@@ -57,7 +57,9 @@ const NavBar = () => {
         </li>
         <li className={navStyle.searchBtn}>
           <i className="fas fa-search fa-2x"></i>
+          <Link href="/book-service">
           <button>book service</button>
+          </Link>
         </li>
 
         <li className={navStyle.menu}>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import bookStyle from "../../styles/BookService.module.css";
 const BookService = () => {
   return (
@@ -67,7 +68,9 @@ const BookService = () => {
         </div>
         <hr />
         <div className={bookStyle.nextBtn}>
+          <Link href="/fix-date">
           <button>next &rarr;</button>
+          </Link>
         </div>
       </div>
     </section>
