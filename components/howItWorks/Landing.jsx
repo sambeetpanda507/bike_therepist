@@ -11,7 +11,7 @@ const Landing = () => {
           poster=""
           alt="A 3D model of an astronaut"
           shadow-intensity="5"
-          skybox-image="/urban_courtyard_02_2k.hdr"
+          // skybox-image="/urban_courtyard_02_2k.hdr"
           auto-rotate
           ar
         ></model-viewer>
