@@ -1,6 +1,7 @@
 .userDetails{
     background-color: #333;
     width: 100%;
+    /* padding: 0 5% 0 5%; */
 }
 .status{
     padding: 3rem;
@@ -18,25 +19,25 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 10rem;
-    padding: 5%;
+    margin-left: 3rem;
+    padding: 0 5% 0 5%;
 }
 .details h1{
     color: var(--text-white);
     flex-basis: 80rem;
-    margin-left: 6rem;
     margin-bottom: 2rem;
     font-size: 4rem;
+    margin-left: 1rem;
 }
 .inputs1{
-    width: 40rem;
+    width: 43.5rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 .inputs1 input,.inputs1 select{
-    width: 70%;
+    width: 90%;
     height: 4rem;
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
@@ -51,40 +52,36 @@
     margin-left: 1rem;
 }
 .inputs2{
-    width: 136rem;
+    width: 127rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 .inputs2 input,.inputs3 input{
-    width: 80%;
+    width: 100%;
     height: 4rem;
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
-    margin-left: 6rem;
 }
-.inputs2 label,.inputs3 label,.inputs4 label{
-    margin-left: 6.5rem;
-}
+
 .inputs3{
-    width: 136rem;   
+    width: 127rem;   
     height: 15rem;
 }
 .inputs3 input{
   height: 8rem;
 }
 .inputs4{
-    width: 136rem;
+    width: 127rem;
     height: 21rem;
 }
 .inputs4 input{
     display: block;
-    width: 80%;
+    width: 100%;
     height: 4rem;
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
-    margin-left: 6rem;
     margin-top: 1rem;
 }
 .end{
@@ -99,10 +96,11 @@
    padding: 2rem 0 5rem 0;
 }
 .bottom div{
-    width: 85%;
+    width: 84%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-left: -3rem;
 }
 .bottom hr{
     border: 1px solid var(--text-warning);
@@ -118,21 +116,22 @@
     border: none;
     border-radius: 5px;
     margin-top: 1rem;
-    margin-left: 5rem;
 }
 @media (max-width:1200px)
 {
-  .details{
-      margin-left: 0;
-  }
-  .bottom button{
-      margin-left: 0;
-  }
+   .details{
+       margin-left: 0;
+   }
 }
-@media (max-width:600px)
+@media (max-width:770px)
 {
-  .inputs1 input
-  {
-      width: 100%;
-  }
+    .bottom button{
+        margin-left: 0;
+    }
+    .inputs1{
+        width: 136rem;
+    }
+    .inputs1 input,.inputs1 select{
+        width: 100%;
+    }
 }

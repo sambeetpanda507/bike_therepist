@@ -1,8 +1,16 @@
 import Link from "next/link";
+import {useState} from 'react';
 import bookStyle from "../styles/BookService.module.css";
 import styles from "../styles/bookService/FixDate.module.css";
 
 const FixDate = () => {
+    
+    let [date, filterDate] = useState('');
+
+    const onChange = (date)=>{
+        setDate(date);
+    };
+    
     return (
         <div className={styles.fixdate}>
             <div className={bookStyle.container} className={styles.status}>
@@ -40,7 +48,10 @@ const FixDate = () => {
 
             <div className={styles.calContainer}>
                 <div className={styles.calender}>
-                    <div className={styles.cal}></div>
+                    
+                    <div className={styles.cal}>
+                    </div>
+                    
                     <div className={styles.timing}>
                         <Link href="/user-details">
                         <div style={{backgroundColor:"yellow"}} className={styles.btn1}>Sat,Feb 27</div>
