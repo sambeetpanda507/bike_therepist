@@ -150,6 +150,11 @@
   align-items: center;
   justify-content: center;
 }
+.bar {
+  height: 3rem;
+  width: 100%;
+  background-color: var(--bg-warning);
+}
 
 @media (max-width: 600px) {
   .contactContainer {

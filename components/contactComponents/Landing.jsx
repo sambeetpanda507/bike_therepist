@@ -79,6 +79,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      <div className={style.bar}></div>
     </section>
   );
 };
