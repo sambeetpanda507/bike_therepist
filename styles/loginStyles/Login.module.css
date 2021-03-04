@@ -1,0 +1,287 @@
+.wallPaper{
+    background: url('../../public/bikes.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 68rem;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.outlay{
+    height: 90%;
+    width: 60%;
+    display: flex;
+    background-color: rgba(0, 0, 0,0.8);
+    flex-direction: row;
+    border-radius: 1rem;
+}
+.cover,.unCoverSign{
+    /* height: 100%; */
+    width: 35%;
+    padding: 2%;
+    background-color: rgba(253, 214, 0,0.8);
+    border-radius: 1rem 0 0 1rem;
+}
+.askSign{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.logo3{
+    font-size: 2rem;
+}
+.logo3 span{
+    font-family: "Dancing Script", cursive;
+    color:  red;
+}
+.askSign h1{
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 35%;
+}
+.askSign p
+{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 3%;
+    line-height: 1.8rem;
+}
+.askSign button{
+    border:  2px solid black;
+    height: 12%;
+    width: 60%;
+    align-self: center;
+    margin-top: 15%;
+    background-color: transparent;
+    border-radius: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.add
+{
+    margin-top: 28%;
+}
+.add h3{
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+.add div{
+    display: inline-block;
+    border: 2px solid black;
+    width: 3rem;height: 3rem;
+    border-radius: 1.5rem;
+    margin-left: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.logCover,.unCoverLog{
+    /* height: 100%; */
+    width: 65%;
+    padding: 4%;
+    padding-top: 2%;
+    border-radius: 0 1rem 1rem 0;
+}
+.login,.register{
+    height: 100%;
+    width: 100%;
+    border-radius: 0 1rem 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+.login h1,.register h1{
+    font-size: 5rem;
+    color: var(--text-white);
+    font-weight: 600;
+    position: relative;
+}
+.login h1::after,.register h1::after{
+    content: '';
+    height: 0.5rem;
+    position: absolute;
+    display: block;
+    background-color: var(--bg-warning);
+}
+.login h1::after{
+    width: 12.5rem;
+}
+.register h1::after{
+    width: 16rem;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+}
+.wrap{
+    position: relative;
+}
+.space{
+    position: relative;
+}
+.wrapper{
+    position: relative;
+}
+.wrapper label,.space label{
+    display: block;
+    font-size: 1.8rem;
+    color: var(--text-white);
+   position: absolute;
+   left: 8%;
+}
+.wrapper label,.space label{
+    top: 0%;
+}
+.space{
+    margin-top: 10%;
+}
+.wrapper input,.space input{
+    width: 90%;
+    border-top:none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid var(--text-white);
+    background-color: transparent;
+    margin-top: 2%;
+    position: relative;
+}
+.space input:focus,.wrapper input:focus{
+    outline: none;
+}
+.wrapper div,.space div{
+    width: 42.1rem;
+    height: 0.3rem;
+    background-color: var(--bg-warning);
+    margin-top: -0.2rem;
+    position: absolute;
+    transform: rotateY(90deg);
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+}
+.buttons button{
+    background-color:rgba(0, 0, 0,0.8);
+    color: white;
+    font-size: 1.8rem;
+    height: 5rem;
+    width: 90%;
+    border: 3px solid var(--bg-warning);
+}
+.or{
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    color: var(--text-warning);
+}
+.line{
+    width: 42.2%;
+}
+.line hr{
+    background-color: var(--bg-warning);
+    border: 1px solid var(--bg-warning);
+}
+.login p,.register p{
+    font-size: 1.8rem;
+    color: var(--bg-warning);
+    margin-top: 8%;
+}
+.forgot{
+    color: var(--text-danger);
+}
+.deactive{
+    display: none;
+}
+.active{
+    display: block;
+}
+
+@media(max-width:400px)
+{
+   .logCover{
+       border: 2px solid red;
+       height: 50%;
+   }
+   .cover{
+       height: 50%;
+   }
+
+}
+
+@media (max-width:550px){
+    .wallPaper{
+       height: 118rem;
+    }
+    .outlay{
+       width: 100%;
+       flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+    .cover{
+        width: 100%;
+        border-radius:0 0 1rem 1rem;
+    }
+    .askSign button{
+      height: 6rem;
+    }
+    /* .login,.register{
+        height: 42rem;
+    } */
+    .askSign h3{
+        font-size: 2rem;
+        text-align: center;
+    }
+    .logCover{
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+    }
+    .register{
+        width: 100%;
+    }
+    .wrapper input,.space input{
+        width: 100%;
+    }
+    .login h1,.register h1{
+        text-align: center;
+    }
+    .register h1::after{
+        margin-left: 28%;
+    }
+    .login h1::after{
+        margin-left: 34%;
+    }
+    .buttons button{
+        width: 100%;
+    }
+    .line{
+        width: 46%;
+    }
+    .register{
+        padding-bottom: 2rem;
+    }
+    .add{
+        text-align: center;
+    }
+    .askSign h1{
+        margin-top: 20%;
+    }
+    .askSign p{
+        margin-top: 0;
+    }
+    .wrap,.wrapper,.space{
+        border: 2px solid red;
+        height: 5rem;
+    }
+}
