@@ -67,7 +67,7 @@ const Bike = () => {
             })}
           </div>
           <div className={style.center}>
-            <img src="/center-bike.png" alt="bike image" />
+            <img src="/center-bike.webp" alt="bike image" />
           </div>
           <div className={style.right}>
             {rightData.map((val, index) => {
