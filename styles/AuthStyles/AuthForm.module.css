@@ -1,8 +1,8 @@
 .testSignup {
-  widht: 100%;
+  width: 100%;
   padding: 5%;
   min-height: calc(100vh - 8rem);
-  background: url("../../public/bikes.jpg");
+  background: url("../../public/bikes.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

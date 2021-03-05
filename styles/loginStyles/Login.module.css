@@ -21,7 +21,6 @@
 }
 .cover,
 .unCoverSign {
-  /* height: 100%; */
   width: 35%;
   padding: 2%;
   background-color: rgba(253, 214, 0, 0.8);
@@ -36,17 +35,25 @@
 }
 .logo3 {
   font-size: 2rem;
+  height: 20%;
 }
 .logo3 span {
   font-family: "Dancing Script", cursive;
   color: red;
+}
+.heading {
+  height: 25%;
+  align-items: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .askSign h1 {
   text-align: center;
   font-weight: 500;
   font-size: 3rem;
   font-family: Georgia, "Times New Roman", Times, serif;
-  margin-top: 35%;
+  /* margin-top: 35%; */
 }
 .askSign p {
   text-align: center;
@@ -55,27 +62,29 @@
   margin-top: 3%;
   line-height: 1.8rem;
 }
+.btn1 {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .askSign button {
-  border: 0.2rem solid black;
-  height: 12%;
+  border: 2px solid black;
+  height: 40%;
   width: 60%;
-  align-self: center;
-  margin-top: 15%;
   background-color: transparent;
   border-radius: 2.5rem;
   font-size: 1.8rem;
   font-weight: 600;
 }
-.add {
-  margin-top: 28%;
-}
+
 .add h3 {
   font-weight: 600;
   font-size: 1.8rem;
 }
 .add div {
   display: inline-block;
-  border: 0.2rem solid black;
+  border: 2px solid black;
   width: 3rem;
   height: 3rem;
   border-radius: 1.5rem;
@@ -124,12 +133,19 @@
   width: 16rem;
 }
 .inputs {
+  height: 50%;
   display: flex;
   flex-direction: column;
-  margin-top: 8%;
+  margin-top: 1%;
 }
 .wrap {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.wrapper2 {
+  width: 50%;
+  /* height: 100%; */
 }
 .space {
   position: relative;
@@ -147,10 +163,13 @@
 }
 .wrapper label,
 .space label {
-  top: 0%;
+  top: 30%;
 }
-.space {
-  margin-top: 10%;
+.space,
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .wrapper input,
 .space input {
@@ -158,7 +177,7 @@
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 0.2rem solid var(--text-white);
+  border-bottom: 2px solid var(--text-white);
   background-color: transparent;
   margin-top: 2%;
   position: relative;
@@ -179,7 +198,6 @@
 .buttons {
   display: flex;
   flex-direction: column;
-  margin-top: 8%;
 }
 .buttons button {
   background-color: rgba(0, 0, 0, 0.8);
@@ -187,7 +205,7 @@
   font-size: 1.8rem;
   height: 5rem;
   width: 90%;
-  border: 0.3rem solid var(--bg-warning);
+  border: 3px solid var(--bg-warning);
 }
 .or {
   display: flex;
@@ -200,13 +218,13 @@
 }
 .line hr {
   background-color: var(--bg-warning);
-  border: 0.1rem solid var(--bg-warning);
+  border: 1px solid var(--bg-warning);
 }
 .login p,
 .register p {
   font-size: 1.8rem;
   color: var(--bg-warning);
-  margin-top: 8%;
+  margin-top: 2%;
 }
 .forgot {
   color: var(--text-danger);
@@ -218,13 +236,32 @@
   display: block;
 }
 
-@media (max-width: 400px) {
-  .logCover {
-    border: 0.2rem solid red;
-    height: 50%;
+@media (max-width: 1025px) {
+  .wrapper input,
+  .space input {
+    width: 100%;
   }
-  .cover {
-    height: 50%;
+  .outlay {
+    width: 85%;
+  }
+  .inputs {
+    height: 65%;
+    justify-content: center;
+  }
+  .space,
+  .wrap,
+  .wrapper {
+    height: 25%;
+  }
+  .wrapper2 {
+    height: 100%;
+    width: 48%;
+  }
+  .wrap {
+    justify-content: space-between;
+  }
+  .buttons {
+    height: 25%;
   }
 }
 
@@ -237,63 +274,43 @@
     flex-direction: column-reverse;
     flex-wrap: wrap;
   }
-  .cover {
-    width: 100%;
-    border-radius: 0 0 1rem 1rem;
-  }
-  .askSign button {
-    height: 6rem;
-  }
-  /* .login,.register{
-        height: 42rem;
-    } */
-  .askSign h3 {
-    font-size: 2rem;
-    text-align: center;
-  }
+  .cover,
   .logCover {
     width: 100%;
-    border-radius: 1rem 1rem 0 0;
-  }
-  .register {
-    width: 100%;
-  }
-  .wrapper input,
-  .space input {
-    width: 100%;
+    height: 50%;
+    border-radius: 0 0 1rem 1rem;
   }
   .login h1,
   .register h1 {
     text-align: center;
   }
+  .login h1::after,
   .register h1::after {
-    margin-left: 28%;
+    margin-left: 30%;
   }
-  .login h1::after {
-    margin-left: 34%;
+  .logo3 {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .add {
+    text-align: center;
+  }
+  .inputs {
+    justify-content: center;
+  }
+  .space,
+  .wrap,
+  .wrapper {
+    height: 30%;
+  }
+  .wrapper2 {
+    height: 100%;
+    width: 48%;
   }
   .buttons button {
     width: 100%;
   }
   .line {
-    width: 46%;
-  }
-  .register {
-    padding-bottom: 2rem;
-  }
-  .add {
-    text-align: center;
-  }
-  .askSign h1 {
-    margin-top: 20%;
-  }
-  .askSign p {
-    margin-top: 0;
-  }
-  .wrap,
-  .wrapper,
-  .space {
-    border: 0.2rem solid red;
-    height: 5rem;
+    width: 48%;
   }
 }

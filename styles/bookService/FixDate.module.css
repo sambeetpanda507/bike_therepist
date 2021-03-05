@@ -29,8 +29,7 @@
 .cal{
     width: 35rem;
     height: 38rem;
-    background-color: var(--bg-warning);
-    border-radius: 1rem;
+    background-color: var(--bg-white);
     box-shadow: -8px 10px 12px rgba(0, 0, 0, 0.5);
 }
 .timing{

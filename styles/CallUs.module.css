@@ -1,7 +1,7 @@
 .call {
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
-    url("/call.png");
+    url("/call.webp");
   background-position: right;
   background-repeat: no-repeat;
   background-size:contain;

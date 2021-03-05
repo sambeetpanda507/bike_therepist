@@ -41,9 +41,10 @@
     height: 4rem;
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
+    font-size: 1.8rem;
 }
 .inputs1 option{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 .inputs1 label,.inputs2 label,.inputs3 label,.inputs4 label{
     font-size: 1.8rem;
@@ -63,6 +64,7 @@
     height: 4rem;
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
+    font-size: 1.8rem;
 }
 
 .inputs3{
@@ -83,6 +85,7 @@
     border-radius: 1rem;
     border: 2px solid var(--bg-warning);
     margin-top: 1rem;
+    font-size: 1.8rem;
 }
 .end{
     width: 100%;
