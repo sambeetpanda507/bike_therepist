@@ -1,11 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import style from "../../styles/AuthStyles/AuthForm.module.css";
 
 const AuthForm = () => {
   const [isSignin, setIsSignin] = useState(true);
+  const [isEmailFieldEmpty, setIsEmailFieldEmpty] = useState(true);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    handleEmail();
+  }, [email]);
+
   const handleAuthToggle = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
     setIsSignin((prev) => !prev);
+  };
+  const handleInput = (e) => {
+    if (e.target.name === "name") {
+      setName(e.target.value);
+    } else if (e.target.name === "phone") {
+      setPhone(e.target.value);
+    } else if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    } else {
+      setConfirmPassword(e.target.value);
+    }
+  };
+  const handleEmail = () => {
+    if (email) {
+      setIsEmailFieldEmpty(false);
+    } else {
+      setIsEmailFieldEmpty(true);
+    }
+  };
+  const handleSignup = (e) => {
+    e.preventDefault();
+  };
+  const handleSignin = (e) => {
+    e.preventDefault();
   };
   return (
     <section id="testSignup" className={style.testSignup}>
@@ -49,26 +91,55 @@ const AuthForm = () => {
               className={`${style.rightForm} ${
                 isSignin ? style.signUpForm : style.hide
               }`}
+              onSubmit={handleSignup}
             >
               <div className={style.inputWrapper}>
                 <div className={style.formGrp}>
-                  <input type="text" id="name" name="name" required />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={name}
+                    onChange={handleInput}
+                    required
+                  />
                   <label htmlFor="name">name</label>
                 </div>
                 <div className={style.formGrp}>
-                  <input type="text" id="phone" name="phone" required />
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={handleInput}
+                    required
+                  />
                   <label htmlFor="phone">phone no.</label>
                 </div>
               </div>
               <div className={style.formGrp}>
-                <input type="email" id="signupEmail" name="email" required />
-                <label htmlFor="signupEmail">email</label>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  name="email"
+                  value={email}
+                  onChange={handleInput}
+                  required
+                />
+                <label
+                  htmlFor="signupEmail"
+                  className={isEmailFieldEmpty ? null : style.labelUp}
+                >
+                  email
+                </label>
               </div>
               <div className={style.formGrp}>
                 <input
                   type="password"
                   id="signupPassword"
                   name="password"
+                  value={password}
+                  onChange={handleInput}
                   required
                 />
                 <label htmlFor="signupPassword">password</label>
@@ -78,6 +149,8 @@ const AuthForm = () => {
                   type="password"
                   id="confirmPassword"
                   name="confirm"
+                  value={confirmPassword}
+                  onChange={handleInput}
                   required
                 />
                 <label htmlFor="confirmPassword">confirm password</label>
@@ -104,19 +177,34 @@ const AuthForm = () => {
               className={`${style.rightForm} ${
                 isSignin ? style.signInForm : style.show
               }`}
+              onSubmit={handleSignin}
             >
               <div className={style.formGrp}>
-                <input type="email" id="signupEmail" name="email" required />
-                <label htmlFor="signupEmail">email</label>
+                <input
+                  type="email"
+                  id="signinEmail"
+                  name="email"
+                  value={email}
+                  onChange={handleInput}
+                  required
+                />
+                <label
+                  htmlFor="signinEmail"
+                  className={isEmailFieldEmpty ? null : style.labelUp}
+                >
+                  email
+                </label>
               </div>
               <div className={style.formGrp}>
                 <input
                   type="password"
-                  id="signupPassword"
+                  id="signinPassword  "
                   name="password"
+                  value={password}
+                  onChange={handleInput}
                   required
                 />
-                <label htmlFor="signupPassword">password</label>
+                <label htmlFor="signinPassword">password</label>
               </div>
               <div className={style.btnGrp}>
                 <button type="submit">sign in</button>
