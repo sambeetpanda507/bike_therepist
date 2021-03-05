@@ -1,13 +1,11 @@
-import Login from "../components/authComponents/Login"; 
-import SignUp from "../components/authComponents/SignUp"; 
-import styles from "../styles/loginStyles/Login.module.css";
+import AuthForm from "../components/authComponents/AuthForm";
 
-const Authentication = ()=>{
-    return (
-        <div className={styles.wallPaper}>
-            <SignUp />
-        </div>
-    ); 
+const Authentication = () => {
+  return (
+    <section id="authentication">
+      <AuthForm />
+    </section>
+  );
 };
 
 export default Authentication;
