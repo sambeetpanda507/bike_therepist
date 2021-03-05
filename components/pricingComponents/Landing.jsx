@@ -24,7 +24,7 @@ const Landing = () => {
                 <span>03</span> Cyclic follow- Ups
               </h1>
             </div>
-            <img src="/pricing center design.png" alt="center design" />
+            <img src="/pricing center design.webp" alt="center design" />
             <div className={`${style.right1} ${style.card}`}>
               <i className="fas fa-clipboard-list fa-4x text-warning"></i>
               <h1>

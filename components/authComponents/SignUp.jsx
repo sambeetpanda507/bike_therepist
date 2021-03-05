@@ -14,10 +14,10 @@ const Login = ()=>{
                 <div className={styles.cover}>
                     <div className={`${ (act) ? styles.deactive : styles.askSign }`}>
                         <h3 className={styles.logo3}><span>Bike</span><strong>Therapist</strong></h3>
-                        <h1>Hello, Friend!</h1>
+                        <div className={styles.heading}><h1>Hello, Friend!</h1></div>
                         <p>Enter Your Personal Details <br />
                         And Start Your Journey With Us.</p>
-                        <button onClick={handleChange}>Sign Up</button>
+                       <div className={styles.btn1}><button onClick={handleChange}>Sign Up</button></div>
                         <div className={styles.add}>
                             <h3>Sign Up Using</h3>
                             <div>g+</div>
@@ -28,10 +28,10 @@ const Login = ()=>{
                        {/* Sign Up */}
                     <div className={`${ (act) ? styles.askSign : styles.deactive }`}>
                         <h3 className={styles.logo3}><span>Bike</span><strong>Therapist</strong></h3>
-                        <h1>Welcome, Back!</h1>
+                        <div className={styles.heading}><h1>Welcome, Back!</h1></div>
                         <p>To Keep Connected With Us Please<br />
                             Login With Your Personal Info.</p>
-                        <button onClick={handleChange}>Sign In</button>
+                        <div className={styles.btn1}><button onClick={handleChange}>Sign In</button></div>
                         <div className={styles.add}>
                             <h3>Sign In Using</h3>
                             <div>g+</div>
@@ -43,7 +43,7 @@ const Login = ()=>{
         
                 
                 <div className={styles.logCover}>
-                    <div className={`${ (act) ? styles.deactive : styles.login }`}>
+                    <form className={`${ (act) ? styles.deactive : styles.login }`}>
                         <h1>Login</h1>
                         <div className={styles.inputs}>
                             <div className={styles.wrapper}>
@@ -67,36 +67,34 @@ const Login = ()=>{
                             <button>Sign in using (E)</button>
                         </div>
                         <p>Forgot PassWord ? <a className={styles.forgot}>Click here</a></p>
-                    </div>
+                    </form>
 
                     {/* Sign Up */}
                     
-                    <div className={`${ (act) ? styles.register : styles.deactive }`}>
+                    <form className={`${ (act) ? styles.register : styles.deactive }`}>
                         <h1>SignUp</h1>
                         <div className={styles.inputs}>
                             <div className={styles.wrap}>
-                            <div className={styles.wrapper} style={{position:"static",
-                            display:"inline"}}>
-                                
+                            <div className={`${styles.wrapper} ${styles.wrapper2}`}>
+            
                                 <label htmlFor="">Name</label>
-                                <input type="text" style={{width:"43%"}} />
-                                <div style={{width:"20.5rem"}}></div>
+                                <input type="text" />
+                                <div></div>
                             </div>
-                            <div className={styles.wrapper} style={{position:"static",
-                            display:"inline"}}>
+                            <div className={`${styles.wrapper} ${styles.wrapper2}`}>
                                 
-                                <label htmlFor="" style={{marginLeft:"45%"}}>Phone No</label>
-                                <input type="text" style={{width:"43%",marginLeft:"3.5%"}} />
-                                <div style={{width:"20.5rem",marginLeft:"46%"}}></div>
+                                <label htmlFor="">Phone No</label>
+                                <input type="text" />
+                                <div></div>
                             </div>
                             </div>
 
-                            <div className={styles.space} style={{marginTop:"8%"}}>
+                            <div className={styles.space}>
                                 <label htmlFor="">Username</label>
                                 <input type="text" />
                                 <div></div>
                             </div>
-                            <div className={styles.space}  style={{marginTop:"8%"}}>
+                            <div className={styles.space} >
                                 <label htmlFor="">Password</label>
                                 <input type="text" />
                                 <div></div>
@@ -111,7 +109,7 @@ const Login = ()=>{
                             </div>
                             <button>Sign up using (E)</button>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
             </div>

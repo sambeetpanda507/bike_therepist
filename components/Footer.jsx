@@ -76,7 +76,7 @@ const Footer = () => {
               <img src="/banner-small-circle.png" alt="small circle" />
             </div>
             <div className={style.bannerBigCircle}>
-              <img src="/banner-big-circle.png" alt="big circle" />
+              <img src="/banner-big-circle.webp" alt="big circle" />
             </div>
             <div className={style.bannerLeft}>
               <h3>let's get started!</h3>

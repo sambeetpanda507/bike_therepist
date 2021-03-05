@@ -32,7 +32,7 @@ const AboutBike = () => {
             </p>
           </div>
           <div className={style.imgContainer}>
-            <img src="/bike.png" alt="bike image" />
+            <img src="/bike.webp" alt="bike image" />
           </div>
         </div>
         <div className={style.btnGrp}>

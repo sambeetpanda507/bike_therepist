@@ -2,13 +2,16 @@ import Link from "next/link";
 import {useState} from 'react';
 import bookStyle from "../styles/BookService.module.css";
 import styles from "../styles/bookService/FixDate.module.css";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const FixDate = () => {
     
-    let [date, filterDate] = useState('');
+    let [date, setDate] = useState('');
 
     const onChange = (date)=>{
         setDate(date);
+        console.log(date);
     };
     
     return (
@@ -50,6 +53,10 @@ const FixDate = () => {
                 <div className={styles.calender}>
                     
                     <div className={styles.cal}>
+                    <Calendar
+                    onChange={onChange}
+                    value={date}
+                    />
                     </div>
                     
                     <div className={styles.timing}>

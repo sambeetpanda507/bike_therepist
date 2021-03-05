@@ -2,7 +2,7 @@
   width: 100%;
   min-height: calc(100vh - 80px);
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
-    url("/earth.png");
+    url("/earth.webp");
   background-position: center;
   background-size: cover;
 }

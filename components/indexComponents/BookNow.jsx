@@ -5,7 +5,7 @@ const BookNow = () => {
     <section className={style.bookNow} id="bookNow">
       <div className={style.container}>
         <div className={style.imgDiv}>
-          <img src="/bikeImg.png" alt="bike image" />
+          <img src="/bikeImg.webp" alt="bike image" />
         </div>
         <div className={style.content}>
           <div className={style.contentWrapper}>
