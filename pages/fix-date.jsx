@@ -33,7 +33,6 @@ const FixDate = () => {
             <label htmlFor="details">3. details</label>
             <div className={bookStyle.progressBarWrapper}>
               <p></p>
-
             </div>
           </div>
           <div className={bookStyle.progressContainer}>
@@ -56,7 +55,11 @@ const FixDate = () => {
       <div className={styles.calContainer}>
         <div className={styles.calender}>
           <div className={styles.cal}>
-            <Calendar onChange={onChange} value={date} />
+            <Calendar
+              onChange={onChange}
+              value={date}
+              className={bookStyle.calender}
+            />
           </div>
 
           <div className={styles.timing}>

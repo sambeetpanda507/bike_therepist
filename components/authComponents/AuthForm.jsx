@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import style from "../../styles/AuthStyles/AuthForm.module.css";
 
 const AuthForm = () => {
@@ -10,6 +14,22 @@ const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     handleEmail();
@@ -26,14 +46,19 @@ const AuthForm = () => {
   const handleInput = (e) => {
     if (e.target.name === "name") {
       setName(e.target.value);
+      setError(null);
     } else if (e.target.name === "phone") {
       setPhone(e.target.value);
+      setError(null);
     } else if (e.target.name === "email") {
       setEmail(e.target.value);
+      setError(null);
     } else if (e.target.name === "password") {
       setPassword(e.target.value);
+      setError(null);
     } else {
       setConfirmPassword(e.target.value);
+      setError(null);
     }
   };
   const handleEmail = () => {
@@ -43,14 +68,93 @@ const AuthForm = () => {
       setIsEmailFieldEmpty(true);
     }
   };
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      return setError("password does not match !!!");
+    }
+    try {
+      const res = await axios({
+        url: "http://localhost:8080/api/signup",
+        data: {
+          name,
+          email,
+          phone,
+          password,
+        },
+        method: "POST",
+        withCredentials: true,
+      });
+      if (res.status === 201) {
+        setName("");
+        setPhone("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setError(null);
+        setIsSignin(false);
+        toast.success("account created", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (err) {
+      setError(err.response.data.msg);
+    }
   };
-  const handleSignin = (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault();
+    try {
+      const res = await axios({
+        url: "http://localhost:8080/api/signin",
+        method: "POST",
+        data: {
+          email,
+          password,
+        },
+        withCredentials: true,
+      });
+      if (res.status === 200) {
+        window.localStorage.setItem("userId", res.data.userId);
+        setEmail("");
+        setPassword("");
+        setError(null);
+        toast.success("login successful", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        router.replace("/");
+      }
+    } catch (err) {
+      setError(err.response.data.msg);
+    }
   };
+
   return (
     <section id="testSignup" className={style.testSignup}>
+      <ToastContainer
+        position="top-center"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className={style.myToast}
+      />
+
       <div className={style.testSignupContainer}>
         {/*left col: start*/}
         <div className={style.colLeft}>

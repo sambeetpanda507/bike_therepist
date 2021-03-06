@@ -70,7 +70,7 @@
   font-size: 1.7rem;
   font-weight: 600;
   text-transform: capitalize;
-  width: 12rem;
+  width: 14rem;
   height: 3.5rem;
   cursor: pointer;
   border-radius: 0.4rem;
@@ -78,6 +78,84 @@
 
 .menu {
   display: none !important;
+}
+.loginBtn {
+  text-transform: capitalize;
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin-top: 8rem;
+}
+
+.drowpown {
+  position: relative;
+}
+.dropdownSm {
+  display: flex;
+  flex-direction: column;
+}
+.dropdownSm div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.dropdownSm .drowDownMenu {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+  transition: 0.1s linear !important;
+}
+
+.dropdownSm .drowDownMenu li {
+  font-size: 3rem;
+}
+.drowDownMenu {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  transform: translate(0, 0rem);
+  background-color: var(--bg-warning);
+  color: #333;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0;
+  width: 12rem;
+  height: 6.9rem;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+.dropdownSm a {
+  color: var(--text-white) !important;
+  text-transform: capitalize;
+  text-align: center;
+}
+.dropdownSm i {
+  color: var(--text-white);
+  font-size: 3rem;
+}
+.drowDownMenu.hide {
+  height: 0;
+}
+.drowDownMenu li {
+  list-style: none;
+  transition: 0.2s linear;
+  padding: 0.5rem;
+}
+.drowDownMenu li:hover {
+  background-color: orange;
+  cursor: pointer;
+  color: #000;
+}
+
+.drowpown a,
+.drowpown i {
+  cursor: pointer;
+}
+.drowpown a:hover {
+  color: var(--text-danger) !important;
+}
+.dropdownSm a:hover {
+  color: #fff !important;
 }
 
 .curtain {
@@ -91,7 +169,7 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  z-index: 2;
+  z-index: 200;
 }
 .curtain span {
   position: absolute;

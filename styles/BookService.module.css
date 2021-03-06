@@ -104,6 +104,32 @@
   font-weight: 600;
 }
 
+.calender {
+  height: 100% !important;
+}
+.calender > div:nth-child(2) {
+  height: calc(100% - 7rem) !important;
+}
+
+.calender > div:nth-child(2) > div {
+  height: 100% !important;
+}
+
+.calender > div:nth-child(2) > div > div {
+  height: 100% !important;
+  align-items: flex-start !important;
+}
+.calender > div:nth-child(2) > div > div > div {
+  height: 100% !important;
+}
+.calender > div:nth-child(2) > div > div > div {
+  height: 100% !important;
+}
+
+.calender > div:nth-child(2) > div > div > div > div:nth-child(2) {
+  height: 90% !important;
+}
+
 /* /////media queries//// */
 
 @media (max-width: 900px) {

@@ -10,6 +10,11 @@
   align-items: center;
   justify-content: center;
 }
+.myToast {
+  font-size: 1.6rem !important;
+  text-transform: capitalize;
+}
+
 .testSignupContainer {
   width: 70%;
   margin: auto;

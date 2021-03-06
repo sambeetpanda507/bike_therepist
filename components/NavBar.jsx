@@ -1,14 +1,55 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 import navStyle from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   const [control, setControl] = useState(false);
-
+  const [dropdown, setDropdown] = useState(false);
+  const [userData, setUserData] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    let userId = window.localStorage.getItem("userId");
+    axios({
+      url: "http://localhost:8080/api/is-user",
+      method: "POST",
+      data: {
+        userId: userId,
+      },
+      withCredentials: true,
+    })
+      .then((res) => {
+        setUserData(res.data.isLoggedin);
+      })
+      .catch((err) => {
+        setUserData(err.response.data.isLoggedin);
+      });
+  });
+  const handleLogout = () => {
+    if (userData) {
+      axios({
+        url: "http://localhost:8080/api/logout",
+        method: "GET",
+        withCredentials: true,
+      })
+        .then((res) => {
+          if (res.status === 200) {
+            router.reload("/");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+  // console.log(res.isLoggedin);
   const handleControl = () => {
     setControl((prev) => !prev);
   };
-
+  const handleDropdown = () => {
+    setDropdown((prev) => !prev);
+  };
   return (
     <nav className={navStyle.myNav}>
       <ul className={navStyle.navContainer}>
@@ -50,17 +91,34 @@ const NavBar = () => {
             <a>contact us</a>
           </Link>
         </li>
-        <li className={navStyle.navLink}>
-          <Link href="/blog">
-            <a>blog</a>
-          </Link>
-        </li>
-        <li className={navStyle.searchBtn}>
-          <i className="fas fa-search fa-2x"></i>
-          <Link href="/book-service">
-          <button>book service</button>
-          </Link>
-        </li>
+
+        {userData && (
+          <li className={`${navStyle.navLink} ${navStyle.drowpown}`}>
+            <a onClick={handleDropdown}>admin &nbsp;</a>
+            <i className="fas fa-caret-down" onClick={handleDropdown}></i>
+            <ul
+              className={`${navStyle.drowDownMenu} ${
+                dropdown ? null : navStyle.hide
+              }`}
+            >
+              <li>bookings</li>
+              <li>user admins</li>
+            </ul>
+          </li>
+        )}
+        {userData ? (
+          <li className={navStyle.searchBtn}>
+            <i className="fas fa-search fa-2x"></i>
+            <button onClick={handleLogout}>logout</button>
+          </li>
+        ) : (
+          <li className={navStyle.searchBtn}>
+            <i className="fas fa-search fa-2x"></i>
+            <Link href="/authentication">
+              <button>login as admin</button>
+            </Link>
+          </li>
+        )}
 
         <li className={navStyle.menu}>
           <div
@@ -102,10 +160,43 @@ const NavBar = () => {
                   <a onClick={handleControl}>Contact Us</a>
                 </Link>
               </li>
+              {userData && (
+                <li className={`${navStyle.drowpown} ${navStyle.dropdownSm}`}>
+                  <div>
+                    <a onClick={handleDropdown}>admin &nbsp;</a>
+                    <i
+                      className="fas fa-caret-down"
+                      onClick={handleDropdown}
+                    ></i>
+                  </div>
+                  <ul
+                    className={`${navStyle.drowDownMenu} ${
+                      dropdown ? null : navStyle.hide
+                    }`}
+                  >
+                    <li>bookings</li>
+                    <li>user admins</li>
+                  </ul>
+                </li>
+              )}
               <li>
-                <Link href="/blog">
-                  <a onClick={handleControl}>Blog</a>
-                </Link>
+                {userData ? (
+                  <button
+                    className={`btn btn-warning text-dark btn-lg ${navStyle.loginBtn}`}
+                    onClick={handleLogout}
+                  >
+                    logout
+                  </button>
+                ) : (
+                  <Link href="/authentication">
+                    <button
+                      className={`btn btn-warning text-dark btn-lg ${navStyle.loginBtn}`}
+                      onClick={handleControl}
+                    >
+                      login as admin
+                    </button>
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
@@ -120,5 +211,31 @@ const NavBar = () => {
     </nav>
   );
 };
+
+// export async function getServerSideProps(context) {
+//   const userId = window.localStorage.getItem("userId");
+//   console.log("user id is : ", userId);
+//   let res;
+//   let err;
+//   try {
+//     res = await axios({
+//       url: "http://localhost:8080/api/is-user",
+//       method: "POST",
+//       data: {
+//         userId,
+//       },
+//       withCredentials: true,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     err = error;
+//   }
+//   return {
+//     props: {
+//       res,
+//       err,
+//     }, // will be passed to the page component as props
+//   };
+// }
 
 export default NavBar;

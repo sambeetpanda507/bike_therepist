@@ -10,8 +10,8 @@ const Landing = () => {
       </h1>
       <h3 className={style.headingSecondary}>At Delhi & gurgaon</h3>
       <div className={style.button}>
-        <Link href="/authentication">
-        <button>Login &rarr;</button>
+        <Link href="/book-service">
+          <button>Book A Service &rarr;</button>
         </Link>
       </div>
     </section>
