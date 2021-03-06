@@ -106,6 +106,7 @@
 
 .calender {
   height: 100% !important;
+  border-radius: 1rem;
 }
 .calender > div:nth-child(2) {
   height: calc(100% - 7rem) !important;
