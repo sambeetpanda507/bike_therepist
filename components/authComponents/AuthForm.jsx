@@ -4,6 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import firebase, { signInWithGoogle, auth } from "../firebase";
 import style from "../../styles/AuthStyles/AuthForm.module.css";
 
 const AuthForm = () => {
@@ -140,6 +141,20 @@ const AuthForm = () => {
     }
   };
 
+  const handleGmail = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        if (result) {
+          router.replace("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <section id="testSignup" className={style.testSignup}>
       <ToastContainer
@@ -264,7 +279,7 @@ const AuthForm = () => {
               </div>
               <h1 className="text-center text-danger text-uppercase p-1">or</h1>
               <div className={style.btnGrp}>
-                <button>signup using gmail</button>
+                <button onClick={handleGmail}>signin using gmail</button>
               </div>
               <p className={style.forgotPassword}>
                 <span className="text-warning">forgot password ?</span>{" "}
@@ -315,7 +330,7 @@ const AuthForm = () => {
               </div>
               <h1 className="text-center text-danger text-uppercase p-1">or</h1>
               <div className={style.btnGrp}>
-                <button>signup using gmail</button>
+                <button onClick={handleGmail}>signin using gmail</button>
               </div>
               <p className={style.forgotPassword}>
                 <span className="text-warning">forgot password ?</span>{" "}
