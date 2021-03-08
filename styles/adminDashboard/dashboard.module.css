@@ -1,0 +1,240 @@
+.main {
+  height: 145rem;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: row;
+}
+.dashboard {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--admin-bg);
+}
+.welcome {
+  /* border: 2px solid red; */
+  padding: 3rem 0 0 4rem;
+}
+.welcome h1 {
+  font-size: 3.5rem;
+  color: var(--admin-text);
+}
+.welcome p {
+  font-size: 1.8rem;
+  color: var(--admin-text);
+}
+.first,
+.second,
+.third,
+.fourth {
+  display: flex;
+  /* border: 2px solid red; */
+  padding: 2rem 4rem 2rem 4rem;
+}
+
+.first {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.f1,
+.f2,
+.f3,
+.f4 {
+  height: 12rem;
+  border: 0.2rem solid var(--admin-border);
+  width: 22%;
+  background-color: var(--admin-box);
+  box-shadow: 0 0 1rem var(--admin-border);
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  width: 40%;
+  padding: 2rem 1rem;
+}
+.info {
+  width: 60%;
+}
+.icon div {
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(253, 214, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-warning);
+  font-size: 4rem;
+}
+.info div {
+  color: var(--admin-text);
+  padding: 2rem;
+  text-align: right;
+  font-size: 1.4rem;
+  line-height: 4rem;
+}
+
+.s1,
+.s2,
+.s3,
+.s4 {
+  display: flex;
+  flex-direction: column;
+  height: 18rem;
+  border: 0.2rem solid var(--admin-border);
+  width: 25%;
+  background-color: var(--admin-box);
+  box-shadow: 0 0 1rem var(--admin-border);
+}
+
+.s1 div:nth-child(1),
+.s2 div:nth-child(1),
+.s3 div:nth-child(1),
+.s4 div:nth-child(1) {
+  height: 25%;
+  padding: 1rem 2rem 0 2rem;
+  color: var(--admin-text);
+}
+.progress {
+  height: 50%;
+  padding: 2rem 0 0 2rem;
+  color: var(--admin-text);
+}
+.progress h1 {
+  font-size: 4rem;
+}
+.progress progress {
+  font-size: 1.5rem;
+  width: 90%;
+  background-color: var(--bg-warning);
+  height: 0.5rem;
+  border-radius: 1rem;
+}
+.progress progress[value]::-webkit-progress-value {
+  background-color: var(--bg-warning);
+}
+.progress progress[value]::-webkit-progress-bar {
+  background-color: var(--admin-bg);
+}
+.s1 div:nth-child(3),
+.s2 div:nth-child(3),
+.s3 div:nth-child(3),
+.s4 div:nth-child(3) {
+  height: 25%;
+  color: var(--admin-text);
+  padding: 0 2rem;
+  font-size: 1.4rem;
+}
+
+.third {
+  justify-content: space-between;
+}
+.third div:nth-child(1),
+.third div:nth-child(2) {
+  height: 40rem;
+  border: 0.2rem solid var(--admin-border);
+  background-color: var(--admin-box);
+  box-shadow: 0 0 1rem var(--admin-border);
+  width: 48%;
+}
+
+.fourth div:nth-child(1) {
+  height: 40rem;
+  border: 0.2rem solid var(--admin-border);
+  background-color: var(--admin-box);
+  box-shadow: 0 0 1rem var(--admin-border);
+  width: 100%;
+}
+
+.sidepanel {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid green; */
+  flex-basis: 20%;
+  background-color: var(--admin-side);
+}
+.profile {
+  /* height: 30rem; */
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem 2rem 2rem;
+  align-items: center;
+}
+.details {
+  padding: 2rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column;
+}
+.bottom {
+  /* border: 2px solid red; */
+  margin-top: auto;
+}
+.profile div:nth-child(1) {
+  height: 16rem;
+  width: 16rem;
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rem;
+  background-color: var(--admin-bg);
+}
+.profile div:nth-child(2) {
+  height: 7rem;
+  width: 100%;
+  /* border: 2px solid lawngreen; */
+  text-align: center;
+  color: var(--admin-text);
+}
+.profile p {
+  font-size: 1.4rem;
+}
+.profile h1 {
+  font-size: 3rem;
+}
+
+.dob,
+.email,
+.phone,
+.username {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.username div,
+.dob div,
+.email div,
+.phone div {
+  width: 50%;
+  padding: 1rem;
+  color: var(--admin-text);
+  font-size: 1.6rem;
+}
+.username div:nth-child(2),
+.dob div:nth-child(2),
+.email div:nth-child(2),
+.phone div:nth-child(2) {
+  text-align: right;
+}
+
+.bottom div:nth-child(1),
+.bottom div:nth-child(2),
+.bottom div:nth-child(3),
+.bottom div:nth-child(4) {
+  height: 7rem;
+  border: 0.1rem solid var(--admin-border);
+  background-color: var(--admin-box);
+  color: var(--admin-text);
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+.bottom div:nth-child(1):hover,
+.bottom div:nth-child(2):hover,
+.bottom div:nth-child(3):hover,
+.bottom div:nth-child(4):hover {
+  background-color: var(--admin-border);
+  cursor: pointer;
+}

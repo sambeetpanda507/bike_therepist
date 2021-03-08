@@ -175,7 +175,9 @@ const NavBar = () => {
                     }`}
                   >
                     <li>bookings</li>
-                    <li>user admins</li>
+                    <Link href="admin-dashboard">
+                      <li>DashBoard</li>
+                    </Link>
                   </ul>
                 </li>
               )}
