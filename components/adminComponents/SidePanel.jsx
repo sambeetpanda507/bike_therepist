@@ -2,7 +2,7 @@ import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const SidePanel = () => {
   return (
-    <div className={styles.sidepanel}>
+    <div className={`${styles.sidepanel}`}>
       <div className={styles.profile}>
         <div></div>
         <div>

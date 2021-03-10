@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/adminComponents/header";
 import SidePanel from "../components/adminComponents/SidePanel";
-import DashBoard from "../components/adminComponents/DashBoard";
+import Payments from "../components/adminComponents/payments";
 import styles from "../styles/adminDashboard/sidepanel.module.css";
 
 const adminDashBoard = () => {
@@ -9,14 +9,14 @@ const adminDashBoard = () => {
     <section id="dashboard">
       <Head>
         <meta
-          title="Admin/DashBoard"
+          title="Admin/Payments"
           content="this is the pricing page of biketherapist Admin"
         />
-        <title>Admins DashBoard</title>
+        <title>Payments</title>
       </Head>
       <div className={styles.main}>
         <SidePanel />
-        <DashBoard />
+        <Payments />
       </div>
     </section>
   );

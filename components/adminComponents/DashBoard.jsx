@@ -1,12 +1,16 @@
+import Link from "next/link";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const DashBoard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.welcome}>
-        <div id={styles.welcome}>
+        <div>
           <h1>Welcome Admin!</h1>
           <p>Dashboard</p>
+        </div>
+        <div className={styles.hide}>
+          <i class="fas fa-user-circle"></i>
         </div>
       </div>
 
@@ -121,12 +125,189 @@ const DashBoard = () => {
           </div>
         </div>
       </div>
+
       <div className={styles.third}>
-        <div className={styles.t1}></div>
-        <div className={styles.t2}></div>
+        <div className={styles.t1}>
+          <div className={styles.heading}>
+            <p>Invoices</p>
+          </div>
+
+          <div className={styles.table1}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Invoice ID</th>
+                  <th>Client</th>
+                  <th>Due Date</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className={styles.view}>
+            <Link href="/invoices">
+              <p>View all invoices</p>
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.t2}>
+          <div className={styles.heading}>
+            <p>Payments</p>
+          </div>
+
+          <div className={styles.table1}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Invoice ID</th>
+                  <th>Client</th>
+                  <th>Paid Date</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+                <tr>
+                  <td>#INV-01</td>
+                  <td>Tarun Koli</td>
+                  <td>11 Mar 2019</td>
+                  <td>Rs.380</td>
+                  <td>Paypal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className={styles.view}>
+            <Link href="/payments">
+              <p>View all payments</p>
+            </Link>
+          </div>
+        </div>
       </div>
+
       <div className={styles.fourth}>
-        <div className={styles.fo1}></div>
+        <div className={styles.fo1}>
+          <div className={styles.heading}>Clients</div>
+          <div className={styles.table2}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Client ID</th>
+                  <th>Client</th>
+                  <th>Email</th>
+                  <th>Brand</th>
+                  <th>Varient</th>
+                  <th>Date</th>
+                  <th>Timing</th>
+                  <th>Phone No.</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#CLI-06</td>
+                  <td>Tarun Koli</td>
+                  <td>nop@gmail.com</td>
+                  <td>HONDA</td>
+                  <td>ACTIVA 4G</td>
+                  <td>12 Mar 2019</td>
+                  <td>5 PM</td>
+                  <td>9876543210</td>
+                  <td className={styles.decide}>
+                    <button>Pending</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <Link href="/clients">
+            <div className={styles.view}>View all the Clients</div>
+          </Link>
+        </div>
       </div>
     </div>
   );
