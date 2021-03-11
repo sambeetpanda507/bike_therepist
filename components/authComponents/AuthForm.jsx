@@ -8,13 +8,13 @@ import firebase, { signInWithGoogle, auth } from "../firebase";
 import style from "../../styles/AuthStyles/AuthForm.module.css";
 
 const AuthForm = () => {
-  const [isSignin, setIsSignin] = useState(true);
+  // const [isSignin, setIsSignin] = useState(true);
   const [isEmailFieldEmpty, setIsEmailFieldEmpty] = useState(true);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  // const [name, setName] = useState("");
+  // const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const router = useRouter();
 
@@ -37,31 +37,34 @@ const AuthForm = () => {
   }, [email]);
 
   const handleAuthToggle = () => {
-    setName("");
-    setPhone("");
+    // setName("");
+    // setPhone("");
     setEmail("");
     setPassword("");
-    setConfirmPassword("");
+    // setConfirmPassword("");
     setIsSignin((prev) => !prev);
   };
   const handleInput = (e) => {
-    if (e.target.name === "name") {
-      setName(e.target.value);
-      setError(null);
-    } else if (e.target.name === "phone") {
-      setPhone(e.target.value);
-      setError(null);
-    } else if (e.target.name === "email") {
+    // if (e.target.name === "name") {
+    //   setName(e.target.value);
+    //   setError(null);
+    // } else if (e.target.name === "phone") {
+    //   setPhone(e.target.value);
+    //   setError(null);
+    // } else
+    if (e.target.name === "email") {
       setEmail(e.target.value);
       setError(null);
     } else if (e.target.name === "password") {
       setPassword(e.target.value);
       setError(null);
-    } else {
-      setConfirmPassword(e.target.value);
-      setError(null);
     }
+    //  else {
+    //   setConfirmPassword(e.target.value);
+    //   setError(null);
+    // }
   };
+
   const handleEmail = () => {
     if (email) {
       setIsEmailFieldEmpty(false);
@@ -178,21 +181,15 @@ const AuthForm = () => {
             <span>bike</span> therapist
           </h2>
           <div className={style.message}>
-            <h1 className={style.msgTitle}>
-              {isSignin ? "hello, friends!" : "welcome, back!"}
-            </h1>
-            <p>
-              {isSignin
-                ? "enter your personal details and start your journey with us."
-                : "To Keep Connected With Us Please Login With Your Personal Info."}
-            </p>
+            <h1 className={style.msgTitle}>welcome, back!</h1>
+            <p>To Keep Connected With Please Login With Your Personal Info.</p>
           </div>
           <div className={style.colLeftbtnGrp}>
             <button className={style.signUpBtn} onClick={handleAuthToggle}>
-              {isSignin ? "sign in" : "sign up"}
+              Forgot PassWord ?
             </button>
           </div>
-          <h2 className={style.option}>signup using</h2>
+          <h2 className={style.option}>signin using</h2>
           <div className={style.icons}>
             <div>
               <i className="fas fa-envelope fa-2x"></i>
@@ -202,15 +199,11 @@ const AuthForm = () => {
         {/*left col: end*/}
         {/*right col: start*/}
         <div className={style.colRight}>
-          <h1 className={style.colRightTitle}>
-            {isSignin ? "sign up" : "sign in"}
-          </h1>
+          <h1 className={style.colRightTitle}>sign in</h1>
           <div className={style.formWrapper}>
-            <form
+            {/* <form
               autoComplete="off"
-              className={`${style.rightForm} ${
-                isSignin ? style.signUpForm : style.hide
-              }`}
+              className={`${style.rightForm} ${style.signUpForm}`}
               onSubmit={handleSignup}
             >
               <div className={style.inputWrapper}>
@@ -291,12 +284,11 @@ const AuthForm = () => {
                   </Link>
                 </span>
               </p>
-            </form>
+            </form> */}
+
             <form
               autoComplete="off"
-              className={`${style.rightForm} ${
-                isSignin ? style.signInForm : style.show
-              }`}
+              className={`${style.rightForm} ${style.show}`}
               onSubmit={handleSignin}
             >
               <div className={style.formGrp}>
