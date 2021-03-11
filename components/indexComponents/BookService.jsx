@@ -1,6 +1,11 @@
+import { useState } from "react";
 import Link from "next/link";
 import bookStyle from "../../styles/BookService.module.css";
 const BookService = () => {
+  const [brand, setBrand] = useState("");
+  const handleBrand = (e) => {
+    setBrand(e.target.value);
+  };
   return (
     <section className={bookStyle.book} id="book">
       <div className={bookStyle.container}>
@@ -41,7 +46,7 @@ const BookService = () => {
         <div className={bookStyle.detailsSection}>
           <div className={bookStyle.detailsContainer}>
             <label htmlFor="vehicle">velhicle brand</label>
-            <select name="brandlist" id="brand">
+            <select name="brandlist" id="brand" onChange={handleBrand}>
               <option value="">[--select brand--]</option>
               <option value="brand1">brand1</option>
               <option value="brand2">brand2</option>
@@ -69,7 +74,7 @@ const BookService = () => {
         <hr />
         <div className={bookStyle.nextBtn}>
           <Link href="/fix-date">
-          <button>next &rarr;</button>
+            <button>next &rarr;</button>
           </Link>
         </div>
       </div>

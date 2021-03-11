@@ -10,7 +10,7 @@ const DashBoard = () => {
           <p>Dashboard</p>
         </div>
         <div className={styles.hide}>
-          <i class="fas fa-user-circle"></i>
+          <i className="fas fa-user-circle"></i>
         </div>
       </div>
 
@@ -18,7 +18,7 @@ const DashBoard = () => {
         <div className={styles.f1}>
           <div className={styles.icon}>
             <div>
-              <i class="fas fa-tools"></i>
+              <i className="fas fa-tools fa-4x"></i>
             </div>
           </div>
           <div className={styles.info}>
@@ -32,7 +32,7 @@ const DashBoard = () => {
         <div className={styles.f2}>
           <div className={styles.icon}>
             <div>
-              <i class="fas fa-users-cog"></i>
+              <i className="fas fa-users-cog fa-4x"></i>
             </div>
           </div>
           <div className={styles.info}>
@@ -46,7 +46,7 @@ const DashBoard = () => {
         <div className={styles.f3}>
           <div className={styles.icon}>
             <div>
-              <i class="fas fa-phone-volume"></i>
+              <i className="fas fa-phone-volume fa-4x"></i>
             </div>
           </div>
           <div className={styles.info}>
@@ -60,7 +60,7 @@ const DashBoard = () => {
         <div className={styles.f4}>
           <div className={styles.icon}>
             <div>
-              <i class="fas fa-cogs"></i>
+              <i className="fas fa-cogs fa-4x"></i>
             </div>
           </div>
           <div className={styles.info}>
@@ -275,26 +275,32 @@ const DashBoard = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Client ID</th>
-                  <th>Client</th>
-                  <th>Email</th>
-                  <th>Brand</th>
-                  <th>Varient</th>
-                  <th>Date</th>
-                  <th>Timing</th>
-                  <th>Phone No.</th>
-                  <th>Status</th>
+                  <th>client id</th>
+                  <th>client</th>
+                  <th>email</th>
+                  <th>brand</th>
+                  <th>varient</th>
+                  <th>date</th>
+                  <th>timing</th>
+                  <th>phone no.</th>
+                  <th>status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>#CLI-06</td>
-                  <td>Tarun Koli</td>
+                  <td>#cli-06</td>
+                  <td>tarun koli</td>
                   <td>nop@gmail.com</td>
-                  <td>HONDA</td>
-                  <td>ACTIVA 4G</td>
-                  <td>12 Mar 2019</td>
-                  <td>5 PM</td>
+                  <td>honda</td>
+                  <td>activa 4G</td>
+                  <td className={styles.bookingDate}>
+                    {new Date().getDate() +
+                      "-" +
+                      new Date().getMonth() +
+                      "-" +
+                      new Date().getFullYear()}
+                  </td>
+                  <td className={styles.bookingTime}>5 PM</td>
                   <td>9876543210</td>
                   <td className={styles.decide}>
                     <button>Pending</button>
@@ -313,3 +319,5 @@ const DashBoard = () => {
   );
 };
 export default DashBoard;
+
+//{{moment(task.deadLine).format('MMMM Do YYYY, h:mm:ss a')}}

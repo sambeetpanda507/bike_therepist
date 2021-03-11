@@ -147,6 +147,7 @@ const AuthForm = () => {
       .signInWithPopup(provider)
       .then((result) => {
         if (result) {
+          console.log("auth from : ", result);
           router.replace("/");
         }
       })

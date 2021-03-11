@@ -1,10 +1,20 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const SidePanel = () => {
+  const [user, setUser] = useContext(AuthContext);
+  // console.log("auth context user image : ", user.photoURL);
   return (
     <div className={`${styles.sidepanel}`}>
       <div className={styles.profile}>
-        <div></div>
+        <div className={styles.avatar}>
+          {user ? (
+            <img src={`${user.photoURL}`} alt="avatar image" />
+          ) : (
+            <img src="/avatar.svg" alt="avatar image" />
+          )}
+        </div>
         <div>
           <h1>Tarun Koli</h1>
           <p>Web Developer</p>
@@ -40,16 +50,16 @@ const SidePanel = () => {
 
       <div className={styles.bottom}>
         <div>
-          <i class="fas fa-rupee-sign"></i> Payments
+          <i className="fas fa-rupee-sign"></i> Payments
         </div>
         <div>
-          <i class="fas fa-file-invoice"></i> Invoices
+          <i className="fas fa-file-invoice"></i> Invoices
         </div>
         <div>
-          <i class="fas fa-users"></i> Clients
+          <i className="fas fa-users"></i> Clients
         </div>
         <div>
-          <i class="fas fa-sign-out-alt"></i> Logout
+          <i className="fas fa-sign-out-alt"></i> Logout
         </div>
       </div>
     </div>
