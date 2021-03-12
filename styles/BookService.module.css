@@ -84,6 +84,8 @@
   height: 3.5rem;
   text-transform: capitalize;
   border-radius: 5px;
+  font-size: 2rem;
+  height: 3.5rem;
 }
 
 .nextBtn {
