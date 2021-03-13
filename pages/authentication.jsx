@@ -6,10 +6,10 @@ const Authentication = () => {
     <section id="authentication">
       <Head>
         <meta
-          title="authentication page"
+          title="Sign In"
           content="this is the user authentication page for the biketherapist"
         />
-        <title>User Authentication</title>
+        <title>Sign In</title>
       </Head>
       <AuthForm />
     </section>

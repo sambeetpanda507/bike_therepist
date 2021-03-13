@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { AuthContext } from "./AuthContext";
-import { auth } from "./firebase";
 import navStyle from "../styles/NavBar.module.css";
 
 const NavBar = () => {
@@ -12,7 +9,6 @@ const NavBar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [userData, setUserData] = useState(false);
   const router = useRouter();
-  const [user, setUser] = useContext(AuthContext);
   useEffect(() => {
     let userId = window.localStorage.getItem("userId");
     axios({
@@ -47,18 +43,7 @@ const NavBar = () => {
           console.log(error);
         });
     }
-    if (user) {
-      auth
-        .signOut()
-        .then((result) => {
-          router.replace("/");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
   };
-  // console.log(res.isLoggedin);
   const handleControl = () => {
     setControl((prev) => !prev);
   };
@@ -107,7 +92,7 @@ const NavBar = () => {
           </Link>
         </li>
 
-        {(userData || user) && (
+        {userData && (
           <li className={`${navStyle.navLink} ${navStyle.drowpown}`}>
             <a onClick={handleDropdown}>admin &nbsp;</a>
             <i className="fas fa-caret-down" onClick={handleDropdown}></i>
@@ -123,7 +108,7 @@ const NavBar = () => {
             </ul>
           </li>
         )}
-        {userData || user ? (
+        {userData ? (
           <li className={navStyle.searchBtn}>
             <i className="fas fa-search fa-2x"></i>
             <button onClick={handleLogout}>logout</button>
@@ -177,7 +162,7 @@ const NavBar = () => {
                   <a onClick={handleControl}>Contact Us</a>
                 </Link>
               </li>
-              {(userData || user) && (
+              {userData && (
                 <li className={`${navStyle.drowpown} ${navStyle.dropdownSm}`}>
                   <div>
                     <a onClick={handleDropdown}>admin &nbsp;</a>
@@ -199,7 +184,7 @@ const NavBar = () => {
                 </li>
               )}
               <li>
-                {userData || user ? (
+                {userData ? (
                   <button
                     className={`btn btn-warning text-dark btn-lg ${navStyle.loginBtn}`}
                     onClick={handleLogout}

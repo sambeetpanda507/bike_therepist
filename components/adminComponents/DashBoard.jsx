@@ -1,7 +1,11 @@
+import { useState } from "react";
 import Link from "next/link";
+import moment from "moment";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
-const DashBoard = () => {
+const DashBoard = (props) => {
+  const [clients, setClients] = useState(props.clientsData);
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.welcome}>
@@ -287,25 +291,27 @@ const DashBoard = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>#cli-06</td>
-                  <td>tarun koli</td>
-                  <td>nop@gmail.com</td>
-                  <td>honda</td>
-                  <td>activa 4G</td>
-                  <td className={styles.bookingDate}>
-                    {new Date().getDate() +
-                      "-" +
-                      new Date().getMonth() +
-                      "-" +
-                      new Date().getFullYear()}
-                  </td>
-                  <td className={styles.bookingTime}>5 PM</td>
-                  <td>9876543210</td>
-                  <td className={styles.decide}>
-                    <button>Pending</button>
-                  </td>
-                </tr>
+                {clients.map((client, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{client._id}</td>
+                      <td>{client.name}</td>
+                      <td>{client.email}</td>
+                      <td>{client.brand}</td>
+                      <td>{client.variant}</td>
+                      <td className={styles.bookingDate}>
+                        {moment(client.bookingDate).format("MMMM Do YYYY")}
+                      </td>
+                      <td className={styles.bookingTime}>
+                        {client.bookingTime}
+                      </td>
+                      <td>{client.phone}</td>
+                      <td className={styles.decide}>
+                        <button>Pending</button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -318,6 +324,7 @@ const DashBoard = () => {
     </div>
   );
 };
-export default DashBoard;
 
 //{{moment(task.deadLine).format('MMMM Do YYYY, h:mm:ss a')}}
+
+export default DashBoard;

@@ -53,6 +53,7 @@ const UserDetails = () => {
             brand: state.brand,
             variant: state.variant,
             bookingDate: moment(state.bookingDate).toISOString(),
+            bookingTime: state.bookingTime,
             name: state.name,
             email: state.email,
             phone: state.phone,
