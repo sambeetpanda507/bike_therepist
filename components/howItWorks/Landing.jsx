@@ -15,6 +15,14 @@ const Landing = () => {
           auto-rotate
           ar
         ></model-viewer>
+        <div className={style.info}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </section>
   );
