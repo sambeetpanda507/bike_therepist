@@ -218,16 +218,6 @@
   box-shadow: 0 0 1rem rgb(34, 34, 34);
   width: 100%;
 }
-.decide button {
-  color: red;
-  height: 4rem;
-  width: 100%;
-  border-radius: 0.5rem;
-  background-color: black;
-  border: 1px solid black;
-  font-size: 1.7rem;
-  font-weight: 500;
-}
 
 .sidepanel {
   display: flex;
