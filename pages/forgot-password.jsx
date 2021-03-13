@@ -103,15 +103,15 @@ const Forgot = () => {
             <span>bike</span> therapist
           </h2>
           <div className={style.message}>
-            <h1 className={style.msgTitle}>don't have an account !</h1>
-            <p>click below to signup</p>
+            <h1 className={style.msgTitle}>Already have an account</h1>
+            <p>click below to signin</p>
           </div>
           <div className={style.colLeftbtnGrp}>
             <Link href="/authentication">
-              <button className={style.signUpBtn}>sign up</button>
+              <button className={style.signUpBtn}>sign in</button>
             </Link>
           </div>
-          <h2 className={style.option}>signup using</h2>
+          <h2 className={style.option}>signin</h2>
           <div className={style.icons}>
             <div>
               <i className="fas fa-envelope fa-2x"></i>
@@ -144,7 +144,6 @@ const Forgot = () => {
                   email
                 </label>
               </div>
-              {/* {progress > 0 && ( */}
               <div className="progress mt-2 mb-4">
                 <div
                   className="progress-bar progress-bar-striped progress-bar-animated bg-success"
@@ -155,13 +154,8 @@ const Forgot = () => {
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              {/* )} */}
               <div className={style.btnGrp}>
                 <button type="submit mt-4">get email</button>
-              </div>
-              <h1 className="text-center text-danger text-uppercase p-1">or</h1>
-              <div className={style.btnGrp}>
-                <button>login using gmail</button>
               </div>
             </form>
           </div>

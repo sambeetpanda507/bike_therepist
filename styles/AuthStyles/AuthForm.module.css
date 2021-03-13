@@ -121,34 +121,14 @@
   overflow-y: hidden;
   padding: 2% 0;
 }
-/* .signInForm {
-  top: 100rem;
-} */
 .show {
   top: 1rem;
 }
-/* .signUpForm {
-  top: 1rem;
-} */
-/* .hide {
-  top: -100rem;
-} */
 .rightForm {
   position: absolute;
   transition: 0.4s ease-out;
   width: 100%;
 }
-/* .inputWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.inputWrapper div {
-  flex-basis: 45%;
-}
-.inputWrapper div label {
-  left: 2%;
-} */
 .formGrp {
   display: flex;
   flex-direction: column;

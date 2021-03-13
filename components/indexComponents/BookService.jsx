@@ -1,11 +1,23 @@
-import { useState } from "react";
-import Link from "next/link";
+import { useState, useContext } from "react";
+import { useRouter } from "next/router";
+import { BookingContext, ACTIONS } from "../BookingContext";
 import bookStyle from "../../styles/BookService.module.css";
 const BookService = () => {
-  const [brand, setBrand] = useState("");
-  const handleBrand = (e) => {
-    setBrand(e.target.value);
+  const [state, dispatch] = useContext(BookingContext);
+  const router = useRouter();
+  const handleNext = () => {
+    if (
+      state.brand !== "[--select brand--]" &&
+      state.variant !== "[--select brand--]" &&
+      state.brand &&
+      state.variant
+    ) {
+      router.push("/fix-date");
+    } else {
+      alert("please fill the required field !!!");
+    }
   };
+
   return (
     <section className={bookStyle.book} id="book">
       <div className={bookStyle.container}>
@@ -46,7 +58,16 @@ const BookService = () => {
         <div className={bookStyle.detailsSection}>
           <div className={bookStyle.detailsContainer}>
             <label htmlFor="vehicle">velhicle brand</label>
-            <select name="brandlist" id="brand" onChange={handleBrand}>
+            <select
+              name="brandlist"
+              id="brand"
+              onChange={(e) => {
+                dispatch({
+                  type: ACTIONS.brand,
+                  payload: { brand: e.target.value },
+                });
+              }}
+            >
               <option value="">[--select brand--]</option>
               <option value="brand1">brand1</option>
               <option value="brand2">brand2</option>
@@ -59,7 +80,16 @@ const BookService = () => {
           </div>
           <div className={bookStyle.detailsContainer}>
             <label htmlFor="varient">varient</label>
-            <select name="varientlist" id="varient">
+            <select
+              name="varientlist"
+              id="varient"
+              onChange={(e) => {
+                dispatch({
+                  type: ACTIONS.variant,
+                  payload: { variant: e.target.value },
+                });
+              }}
+            >
               <option value="">[--select varient--]</option>
               <option value="variant1">varient1</option>
               <option value="varient2">varient2</option>
@@ -73,9 +103,7 @@ const BookService = () => {
         </div>
         <hr />
         <div className={bookStyle.nextBtn}>
-          <Link href="/fix-date">
-            <button>next &rarr;</button>
-          </Link>
+          <button onClick={handleNext}>next &rarr;</button>
         </div>
       </div>
     </section>

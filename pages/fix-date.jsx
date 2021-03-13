@@ -1,16 +1,20 @@
+import { useContext } from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { ACTIONS, BookingContext } from "../components/BookingContext";
 import bookStyle from "../styles/BookService.module.css";
 import styles from "../styles/bookService/FixDate.module.css";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 const FixDate = () => {
-  let [date, setDate] = useState("");
+  const [state, dispatch] = useContext(BookingContext);
+  const router = useRouter();
 
-  const onChange = (date) => {
-    setDate(date);
-    console.log(date);
+  const handleNext = () => {
+    if (state.bookingDate && state.bookingTime) {
+      router.push("/user-details");
+    } else {
+      alert("please fill the required field");
+    }
   };
 
   return (
@@ -54,29 +58,35 @@ const FixDate = () => {
 
       <div className={styles.calContainer}>
         <div className={styles.calender}>
-          <div className={styles.cal}>
-            <Calendar
-              onChange={onChange}
-              value={date}
-              className={bookStyle.calender}
+          <div className={styles.inputGroup}>
+            <label htmlFor="date">date</label>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              value={state.bookingDate}
+              onChange={(e) => {
+                dispatch({
+                  type: ACTIONS.bookingDate,
+                  payload: { bookingDate: e.target.value },
+                });
+              }}
             />
           </div>
-
-          <div className={styles.timing}>
-            <Link href="/user-details">
-              <div
-                style={{ backgroundColor: "yellow" }}
-                className={styles.btn1}
-              >
-                Sat,Feb 27
-              </div>
-            </Link>
-            <div className={styles.btn1}>9:00 am</div>
-            <div className={styles.btn1}>11:00 am</div>
-            <div className={styles.btn1}>1:00 pm</div>
-            <div className={styles.btn1}>3:00 pm</div>
-            <div className={styles.btn1}>5:00 pm</div>
-            <div className={styles.btn1}>7:00 pm</div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="time">time</label>
+            <input
+              type="time"
+              name="time"
+              id="time"
+              value={state.bookingTime}
+              onChange={(e) => {
+                dispatch({
+                  type: ACTIONS.bookingTime,
+                  payload: { bookingTime: e.target.value },
+                });
+              }}
+            />
           </div>
         </div>
         <div className={styles.logo}>
@@ -91,8 +101,11 @@ const FixDate = () => {
         <div>
           <hr />
         </div>
-        <div>
-          <button>&larr; Back</button>
+        <div className={styles.buttonGroup}>
+          <Link href="/book-service">
+            <button>&larr; Back</button>
+          </Link>
+          <button onClick={handleNext}>next &rarr;</button>
         </div>
       </div>
       <div className={styles.end}></div>

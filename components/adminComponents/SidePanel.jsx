@@ -1,19 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../AuthContext";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const SidePanel = () => {
-  const [user, setUser] = useContext(AuthContext);
-  // console.log("auth context user image : ", user.photoURL);
   return (
     <div className={`${styles.sidepanel}`}>
       <div className={styles.profile}>
         <div className={styles.avatar}>
-          {user ? (
-            <img src={`${user.photoURL}`} alt="avatar image" />
-          ) : (
-            <img src="/avatar.svg" alt="avatar image" />
-          )}
+          <img src="/avatar.svg" alt="avatar image" />
         </div>
         <div>
           <h1>Tarun Koli</h1>
