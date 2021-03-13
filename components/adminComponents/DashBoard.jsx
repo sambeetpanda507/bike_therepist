@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import moment from "moment";
+
+import Status from "./Status";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const DashBoard = (props) => {
@@ -307,7 +309,7 @@ const DashBoard = (props) => {
                       </td>
                       <td>{client.phone}</td>
                       <td className={styles.decide}>
-                        <button>Pending</button>
+                        <Status id={client._id} status={client.status} />
                       </td>
                     </tr>
                   );
