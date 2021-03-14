@@ -101,8 +101,10 @@ const NavBar = () => {
                 dropdown ? null : navStyle.hide
               }`}
             >
-              <li>bookings</li>
-              <Link href="admin-dashboard">
+              <Link href="/clients">
+                <li>bookings</li>
+              </Link>
+              <Link href="/admin-dashboard">
                 <li>DashBoard</li>
               </Link>
             </ul>
@@ -110,12 +112,10 @@ const NavBar = () => {
         )}
         {userData ? (
           <li className={navStyle.searchBtn}>
-            <i className="fas fa-search fa-2x"></i>
             <button onClick={handleLogout}>logout</button>
           </li>
         ) : (
           <li className={navStyle.searchBtn}>
-            <i className="fas fa-search fa-2x"></i>
             <Link href="/authentication">
               <button>login as admin</button>
             </Link>
@@ -176,9 +176,11 @@ const NavBar = () => {
                       dropdown ? null : navStyle.hide
                     }`}
                   >
-                    <li>bookings</li>
-                    <Link href="admin-dashboard">
-                      <li>DashBoard</li>
+                    <Link href="/clients">
+                      <li onClick={handleControl}>bookings</li>
+                    </Link>
+                    <Link href="/admin-dashboard">
+                      <li onClick={handleControl}>DashBoard</li>
                     </Link>
                   </ul>
                 </li>

@@ -105,7 +105,7 @@ const FixDate = () => {
           <Link href="/book-service">
             <button>&larr; Back</button>
           </Link>
-          <button onClick={handleNext}>next &rarr;</button>
+          <button onClick={handleNext}>Next &rarr;</button>
         </div>
       </div>
       <div className={styles.end}></div>

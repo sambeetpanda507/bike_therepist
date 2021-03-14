@@ -24,33 +24,37 @@ const Invoices = () => {
       </div>
       <div className={styles.table3}>
         <table>
-          <tr>
-            <th>#</th>
-            <th>Client ID</th>
-            <th>Name</th>
-            <th>Paid Date</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <td>1.</td>
-            <td>Client ID</td>
-            <td>Name</td>
-            <td>Paid Date</td>
-            <td>Total</td>
-            <td>Status</td>
-            <td>:</td>
-          </tr>
-          <tr>
-            <td>1.</td>
-            <td>Client ID</td>
-            <td>Name</td>
-            <td>Paid Date</td>
-            <td>Total</td>
-            <td>Status</td>
-            <td>:</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Client ID</th>
+              <th>Name</th>
+              <th>Paid Date</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Client ID</td>
+              <td>Name</td>
+              <td>Paid Date</td>
+              <td>Total</td>
+              <td>Status</td>
+              <td>:</td>
+            </tr>
+            <tr>
+              <td>1.</td>
+              <td>Client ID</td>
+              <td>Name</td>
+              <td>Paid Date</td>
+              <td>Total</td>
+              <td>Status</td>
+              <td>:</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

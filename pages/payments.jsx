@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Header from "../components/adminComponents/header";
 import SidePanel from "../components/adminComponents/SidePanel";
 import Payments from "../components/adminComponents/payments";
 import styles from "../styles/adminDashboard/sidepanel.module.css";
