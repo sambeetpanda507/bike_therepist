@@ -29,7 +29,86 @@ const UserDetails = () => {
     }
   }, [error]);
 
-  const handleNext = async () => {
+  // razor pay secret key = zBBMrpm2oT168qwULpH1c7wT
+
+  const displayRazorPay = async () => {
+    const res = await handleNext(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    if (!res) {
+      window.alert("payment gateway failed to start !!!");
+      return;
+    }
+
+    const resOptions = await axios({
+      url: "http://localhost:8080/api/payment",
+      method: "GET",
+    });
+
+    if (!resOptions) {
+      window.alert("payment gateway failed to start !!!");
+      return;
+    }
+    if (resOptions.status === 200) {
+      const options = {
+        key: process.env.NEXT_PUBLIC_PAYMENT_KEY,
+        amount: resOptions.data.amount,
+        currency: resOptions.data.currency,
+        name: "BiketTherapist",
+        description: "Test Transaction",
+        image: "http://localhost:3000/android-chrome-192x192.png",
+        order_id: resOptions.data.id,
+        prefill: {
+          name: state.name,
+          email: state.email,
+          contact: state.phone,
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#29ff5e",
+        },
+        handler: async function (response) {
+          try {
+            const saveUserData = await axios({
+              url: "http://localhost:8080/api/booking",
+              method: "POST",
+              data: {
+                brand: state.brand,
+                variant: state.variant,
+                bookingDate: moment(state.bookingDate).toISOString(),
+                bookingTime: state.bookingTime,
+                name: state.name,
+                email: state.email,
+                phone: state.phone,
+                houseNumber: state.houseNumber,
+                streetNumber: state.streetNumber,
+                city: state.city,
+                state: state.state,
+                postalCode: state.postalCode,
+                dob: moment(state.dob).toISOString(),
+                note: state.note,
+              },
+            });
+            if (saveUserData.status === 201) {
+              window.alert("booking successfull");
+              alert(response.razorpay_payment_id);
+              alert(response.razorpay_order_id);
+              alert(response.razorpay_signature);
+              router.replace("/");
+            }
+          } catch (err) {
+            setError(err.response.data.msg);
+          }
+        },
+      };
+      const razorpayObj = new window.Razorpay(options);
+      razorpayObj.open();
+    }
+  };
+
+  const handleNext = async (src) => {
     if (
       state.brand &&
       state.variant &&
@@ -46,8 +125,8 @@ const UserDetails = () => {
       state.dob
     ) {
       try {
-        const respose = await axios({
-          url: "http://localhost:8080/api/booking",
+        const validationData = await axios({
+          url: "http://localhost:8080/api/validate-booking",
           method: "POST",
           data: {
             brand: state.brand,
@@ -66,9 +145,18 @@ const UserDetails = () => {
             note: state.note,
           },
         });
-        if (respose.status === 201) {
-          window.alert("booking successfull");
-          router.replace("/");
+        if (validationData.status === 200) {
+          return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = () => {
+              return resolve(true);
+            };
+            script.onerror = () => {
+              return resolve(false);
+            };
+            document.body.appendChild(script);
+          });
         }
       } catch (err) {
         setError(err.response.data.msg);
@@ -311,7 +399,7 @@ const UserDetails = () => {
             <Link href="/fix-date">
               <button>&larr; Back</button>
             </Link>
-            <button onClick={handleNext}>Next &rarr;</button>
+            <button onClick={displayRazorPay}>Next &rarr;</button>
           </div>
         </div>
       </div>

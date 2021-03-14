@@ -7,7 +7,7 @@ import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const DashBoard = (props) => {
   const [clients, setClients] = useState(props.clientsData);
-
+  const [payments, setPayments] = useState(props.paymentData);
   return (
     <div className={styles.dashboard}>
       <div className={styles.welcome}>
@@ -212,56 +212,27 @@ const DashBoard = (props) => {
             <table>
               <thead>
                 <tr>
-                  <th>Invoice ID</th>
-                  <th>Client</th>
+                  <th>Payment Id</th>
+                  <th>Email</th>
                   <th>Paid Date</th>
                   <th>Amount</th>
                   <th>Type</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
+                {payments.map((payment, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{payment._id}</td>
+                      <td>{payment.email}</td>
+                      <td>
+                        {moment(payment.createdAt).format("MMMM Do YYYY")}
+                      </td>
+                      <td>{`₹ ${payment.amount / 100} /-`}</td>
+                      <td>{payment.type}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

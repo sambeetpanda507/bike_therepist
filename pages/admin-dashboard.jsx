@@ -4,7 +4,7 @@ import SidePanel from "../components/adminComponents/SidePanel";
 import DashBoard from "../components/adminComponents/DashBoard";
 import styles from "../styles/adminDashboard/sidepanel.module.css";
 
-const adminDashBoard = ({ data }) => {
+const adminDashBoard = ({ data, paymentData }) => {
   return (
     <section id="dashboard">
       <Head>
@@ -16,7 +16,7 @@ const adminDashBoard = ({ data }) => {
       </Head>
       <div className={styles.main}>
         <SidePanel />
-        <DashBoard clientsData={data} />
+        <DashBoard clientsData={data} paymentData={paymentData} />
       </div>
     </section>
   );
@@ -39,8 +39,17 @@ export async function getServerSideProps(context) {
     credentials: "same-origin",
   });
   const data = await res.json();
+
+  const paymentRes = await fetch("http://localhost:8080/api/payments", {
+    method: "GET",
+    mode: "cors",
+    credentials: "same-origin",
+  });
+
+  const paymentData = await paymentRes.json();
+
   return {
-    props: { data },
+    props: { data, paymentData },
   };
 }
 

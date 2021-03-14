@@ -113,7 +113,7 @@ const AuthForm = () => {
           draggable: true,
           progress: undefined,
         });
-        router.replace("/");
+        router.replace("/admin-dashboard");
       }
     } catch (err) {
       setError(err.response.data.msg);
