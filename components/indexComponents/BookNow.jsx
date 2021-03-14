@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from "../../styles/BookNow.module.css";
 
 const BookNow = () => {
@@ -14,7 +15,9 @@ const BookNow = () => {
             <br />
             <h1>we can fix that</h1>
             <div className={style.btnGrp}>
-              <button>book now</button>
+              <Link href="/book-service">
+                <button>book now</button>
+              </Link>
             </div>
           </div>
         </div>

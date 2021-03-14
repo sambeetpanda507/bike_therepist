@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import moment from "moment";
-
+import { SideContext } from "./SideContext";
 import Status from "./Status";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
 const DashBoard = (props) => {
   const [clients, setClients] = useState(props.clientsData);
+  const [hide, setHide] = useContext(SideContext);
+
+  const handleHide = () => {
+    setHide((prev) => !prev);
+  };
 
   return (
     <div className={styles.dashboard}>
@@ -15,7 +20,7 @@ const DashBoard = (props) => {
           <h1>Welcome Admin!</h1>
           <p>Dashboard</p>
         </div>
-        <div className={styles.hide}>
+        <div className={styles.hide} onClick={handleHide}>
           <i className="fas fa-user-circle"></i>
         </div>
       </div>

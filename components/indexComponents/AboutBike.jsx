@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from "../../styles/AboutBike.module.css";
 
 const AboutBike = () => {
@@ -36,7 +37,9 @@ const AboutBike = () => {
           </div>
         </div>
         <div className={style.btnGrp}>
-          <button>know more</button>
+          <Link href="/about">
+            <button>know more</button>
+          </Link>
         </div>
       </div>
     </section>

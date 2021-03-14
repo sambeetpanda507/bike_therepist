@@ -117,10 +117,10 @@ const Reset = () => {
           </div>
           <div className={style.colLeftbtnGrp}>
             <Link href="/authentication">
-              <button className={style.signUpBtn}>sign up</button>
+              <button className={style.signUpBtn}>sign in</button>
             </Link>
           </div>
-          <h2 className={style.option}>signup using</h2>
+          <h2 className={style.option}>signin using</h2>
           <div className={style.icons}>
             <div>
               <i className="fas fa-envelope fa-2x"></i>
@@ -177,10 +177,6 @@ const Reset = () => {
               </div>
               <div className={style.btnGrp}>
                 <button type="submit">reset password</button>
-              </div>
-              <h1 className="text-center text-danger text-uppercase p-1">or</h1>
-              <div className={style.btnGrp}>
-                <button>signin using gmail</button>
               </div>
             </form>
           </div>
