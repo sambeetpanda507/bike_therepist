@@ -29,8 +29,6 @@ const UserDetails = () => {
     }
   }, [error]);
 
-  // razor pay secret key = zBBMrpm2oT168qwULpH1c7wT
-
   const displayRazorPay = async () => {
     const res = await handleNext(
       "https://checkout.razorpay.com/v1/checkout.js"
@@ -96,7 +94,33 @@ const UserDetails = () => {
               alert(response.razorpay_payment_id);
               alert(response.razorpay_order_id);
               alert(response.razorpay_signature);
-              router.replace("/");
+
+              //send req to the backend for the invoice and download it
+              axios({
+                url: "http://localhost:8080/api/generate-invoice",
+                method: "POST",
+                data: {
+                  name: state.name,
+                  amount: 100,
+                  receiptId: response.razorpay_payment_id,
+                },
+                responseType: "arraybuffer",
+              })
+                .then((res) => {
+                  const blob = new Blob([res.data]);
+                  const url = window.URL.createObjectURL(blob);
+                  const link = document.createElement("a");
+                  link.href = url;
+                  link.setAttribute(
+                    "download",
+                    "invoice" + new Date().getTime() + ".pdf"
+                  );
+                  link.click();
+                  router.replace("/");
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
             }
           } catch (err) {
             setError(err.response.data.msg);
