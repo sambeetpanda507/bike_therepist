@@ -103,7 +103,11 @@
   font-size: 1.2rem;
 }
 
+<<<<<<< HEAD
 @media (max-width: 1250px) {
+=======
+@media (max-width: 1210px) {
+>>>>>>> 59a5bde11d09d2d5e845738c0f20af73ae234806
   .invoices {
     flex-basis: 100%;
     width: 100%;
