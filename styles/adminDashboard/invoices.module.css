@@ -33,6 +33,7 @@
   padding: 1rem 2rem;
   color: var(--admin-text);
   overflow: scroll;
+  /* border: 2px solid red; */
 }
 .table3::-webkit-scrollbar {
   width: 0.5rem;
@@ -45,7 +46,7 @@
   border-radius: 0.2rem;
 }
 .table3 table {
-  width: 100%;
+  width: 120rem;
   border-collapse: collapse;
   font-size: 1.8rem;
 }
@@ -102,7 +103,7 @@
   font-size: 1.2rem;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1250px) {
   .invoices {
     flex-basis: 100%;
     width: 100%;

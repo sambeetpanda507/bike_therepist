@@ -4,6 +4,7 @@
 }
 .dashboard {
   flex-basis: 80%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   background-color: var(--admin-bg);
@@ -153,7 +154,7 @@
   border: 0.2rem solid var(--admin-border);
   background-color: var(--admin-box);
   box-shadow: 0 0 1rem rgb(34, 34, 34);
-  width: 55rem;
+  width: 48%;
   display: flex;
   flex-direction: column;
 }
@@ -229,6 +230,7 @@
   position: sticky;
   top: 0;
   left: 0;
+  width: 20%;
 }
 .sidepanel::-webkit-scrollbar {
   width: 0.5rem;
