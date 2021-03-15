@@ -123,6 +123,7 @@
   padding: 0;
   overflow: hidden;
   transition: 0.2s linear;
+  z-index: 100;
 }
 .dropdownSm a {
   color: var(--text-white) !important;
