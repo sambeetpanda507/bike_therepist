@@ -1,6 +1,7 @@
+import moment from "moment";
 import styles from "../../styles/adminDashboard/invoices.module.css";
 
-const Payments = () => {
+const Payments = ({ paymentData }) => {
   return (
     <div className={styles.invoices}>
       <div className={styles.invoice}>
@@ -11,12 +12,22 @@ const Payments = () => {
       </div>
       <div className={styles.search}>
         <div className={styles.wrapper}>
-          <input type="text" required />
+          <input type="text" list="client-id" required />
           <label>Client ID</label>
+          <datalist id="client-id">
+            {paymentData.map((payment, index) => {
+              return <option value={payment._id} key={index} />;
+            })}
+          </datalist>
         </div>
         <div className={styles.wrapper}>
-          <input type="text" required />
+          <input type="text" list="clientEmail" required />
           <label>Name</label>
+          <datalist id="clientEmail">
+            {paymentData.map((payment, index) => {
+              return <option value={payment.email} key={index} />;
+            })}
+          </datalist>
         </div>
         <div className={styles.btn}>
           <i class="fas fa-search"></i> &nbsp;&nbsp;SEARCH
@@ -28,32 +39,25 @@ const Payments = () => {
             <tr>
               <th>#</th>
               <th>Client ID</th>
-              <th>Name</th>
+              <th>Email</th>
               <th>Paid Date</th>
               <th>Payment Amount</th>
               <th>Payment Type</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1.</td>
-              <td>Client ID</td>
-              <td>Name</td>
-              <td>Paid Date</td>
-              <td>Total</td>
-              <td>Status</td>
-              <td>:</td>
-            </tr>
-            <tr>
-              <td>1.</td>
-              <td>Client ID</td>
-              <td>Name</td>
-              <td>Paid Date</td>
-              <td>Total</td>
-              <td>Status</td>
-              <td>:</td>
-            </tr>
+            {paymentData.map((payment, index) => {
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{payment._id}</td>
+                  <td>{payment.email}</td>
+                  <td>{moment(payment.createdAt).format("MMMM Do YYYY")}</td>
+                  <td>{`₹ ${payment.amount / 100} /-`}</td>
+                  <td>{payment.type}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
