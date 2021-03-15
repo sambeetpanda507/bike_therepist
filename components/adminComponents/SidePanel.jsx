@@ -58,8 +58,8 @@ const SidePanel = () => {
           <img src="/avatar.svg" alt="avatar image" />
         </div>
         <div>
-          <h1>Tarun Koli</h1>
-          <p>Web Developer</p>
+          <h1>Admin</h1>
+          <p>BikeTherapist</p>
         </div>
       </div>
 
@@ -94,11 +94,6 @@ const SidePanel = () => {
         <Link href="/payments">
           <div>
             <i className="fas fa-rupee-sign"></i> Payments
-          </div>
-        </Link>
-        <Link href="/invoices">
-          <div>
-            <i className="fas fa-file-invoice"></i> Invoices
           </div>
         </Link>
         <Link href="/clients">

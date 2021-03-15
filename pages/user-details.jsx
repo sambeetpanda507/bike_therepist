@@ -368,7 +368,7 @@ const UserDetails = () => {
               required
             />
           </div>
-          <div className={styles.inputs2} className={styles.inputs4}>
+          <div className={styles.inputs2}>
             <label>Postal Code</label>
             <input
               type="text"

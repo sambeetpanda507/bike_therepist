@@ -143,72 +143,10 @@ const DashBoard = (props) => {
       <div className={styles.third}>
         <div className={styles.t1}>
           <div className={styles.heading}>
-            <p>Invoices</p>
+            <p>Total Revenue</p>
           </div>
 
-          <div className={styles.table1}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Invoice ID</th>
-                  <th>Client</th>
-                  <th>Due Date</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-                <tr>
-                  <td>#INV-01</td>
-                  <td>Tarun Koli</td>
-                  <td>11 Mar 2019</td>
-                  <td>Rs.380</td>
-                  <td>Paypal</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className={styles.view}>
-            <Link href="/invoices">
-              <p>View all invoices</p>
-            </Link>
-          </div>
+          <div className={styles.table1}></div>
         </div>
 
         <div className={styles.t2}>
@@ -242,7 +180,9 @@ const DashBoard = (props) => {
                   );
                 })}
                 <td>011132435456754321235456</td>
-                <td>amamamamammamamamamama@atttasVdxahsdbbhsbAsda.com</td>
+                <td>
+                  tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttamamamamammamamamamama@atttasVdxahsdbbhsbAsda.com
+                </td>
                 <td>date</td>
                 <td>210</td>
                 <td>Card</td>
