@@ -4,11 +4,14 @@ import { BookingContext, ACTIONS } from "../components/BookingContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 import moment from "moment";
+import { io } from "socket.io-client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import style from "../styles/AuthStyles/AuthForm.module.css";
 import styles from "../styles/bookService/UserDetails.module.css";
 import bookStyle from "../styles/BookService.module.css";
+
+export let socket;
 
 const UserDetails = () => {
   const [state, dispatch] = useContext(BookingContext);
@@ -94,6 +97,9 @@ const UserDetails = () => {
               alert(response.razorpay_payment_id);
               alert(response.razorpay_order_id);
               alert(response.razorpay_signature);
+              //sending socket events to backend
+              socket = io("http://localhost:8080");
+              socket.emit("newBooking", { msg: "new booking" });
 
               //send req to the backend for the invoice and download it
               axios({

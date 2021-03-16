@@ -1,5 +1,6 @@
 .invoices {
   flex-basis: 80%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   background-color: var(--admin-bg);

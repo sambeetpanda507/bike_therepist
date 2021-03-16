@@ -2,7 +2,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { io } from "socket.io-client";
 import navStyle from "../styles/NavBar.module.css";
+let socket;
 
 const NavBar = () => {
   const [control, setControl] = useState(false);
@@ -11,6 +13,7 @@ const NavBar = () => {
   const router = useRouter();
   useEffect(() => {
     let userId = window.localStorage.getItem("userId");
+    socket = io("http://localhost:8080");
     axios({
       url: "http://localhost:8080/api/is-user",
       method: "POST",
@@ -21,10 +24,20 @@ const NavBar = () => {
     })
       .then((res) => {
         setUserData(res.data.isLoggedin);
+        if (res.data.isLoggedin) {
+          const audio = new Audio("/alert.mp3");
+          socket.on("notification", (payload) => {
+            audio.play();
+            alert(payload.msg);
+          });
+        }
       })
       .catch((err) => {
         setUserData(err.response.data.isLoggedin);
       });
+    return () => {
+      socket.off("notification");
+    };
   });
   const handleLogout = () => {
     if (userData) {
