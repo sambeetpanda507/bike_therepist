@@ -16,7 +16,7 @@
 }
 
 .testSignupContainer {
-  width: 70%;
+  width: 80%;
   margin: auto;
   border-radius: 2rem;
   display: flex;
@@ -60,7 +60,7 @@
   margin-bottom: 5rem;
 }
 .colLeftbtnGrp button {
-  font-size: 2rem;
+  font-size: 1.8rem;
   width: 18rem;
   height: 5rem;
   outline: none;
