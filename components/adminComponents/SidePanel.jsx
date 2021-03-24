@@ -64,30 +64,20 @@ const SidePanel = () => {
       </div>
 
       <div className={styles.details}>
-        <div className={styles.username}>
-          <div>
-            <h3>Username:</h3>
-          </div>
-          <div>tarunkoli_07</div>
-        </div>
-        <div className={styles.dob}>
-          <div>
-            <h3>DOB:</h3>
-          </div>
-          <div>02 June 2001</div>
-        </div>
-        <div className={styles.email}>
-          <div>
-            <h3>Email:</h3>
-          </div>
-          <div>abc@gmail.com</div>
-        </div>
-        <div className={styles.phone}>
-          <div>
-            <h3>Phone:</h3>
-          </div>
-          <div>9876543210</div>
-        </div>
+        <table>
+          <tr>
+            <td>DOB:</td>
+            <td>02 June 2001</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>test@test.com</td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td>9876543210</td>
+          </tr>
+        </table>
       </div>
 
       <div className={styles.bottom}>

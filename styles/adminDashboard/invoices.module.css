@@ -1,6 +1,6 @@
 .invoices {
   flex-basis: 80%;
-  width: 20%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   background-color: var(--admin-bg);
@@ -104,13 +104,55 @@
   font-size: 1.2rem;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transform: scale(0, 0);
+  transition: 1s;
+}
+.modalOn {
+  transform: scale(1, 1);
+}
+.modalIn {
+  color: var(--admin-text);
+  background-color: var(--admin-bg);
+  height: 70%;
+  width: 70%;
+}
+.close {
+  position: absolute;
+  font-size: 5rem;
+  color: var(--text-warning);
+  font-weight: 600;
+  bottom: 2%;
+  cursor: pointer;
+}
+
 @media (max-width: 1210px) {
   .invoices {
     flex-basis: 100%;
     width: 100%;
   }
+  .modal {
+    height: 67%;
+  }
+  .modalIn {
+    width: 80%;
+  }
 }
-
+@media (max-width: 770px) {
+  .modal {
+    height: 89%;
+  }
+}
 @media (max-width: 560px) {
   .invoices {
     width: 100%;
@@ -122,5 +164,8 @@
   .btn {
     width: 100%;
     margin-bottom: 1rem;
+  }
+  .modal {
+    height: 100%;
   }
 }

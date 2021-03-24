@@ -269,15 +269,24 @@
   padding: 2rem;
   height: 24rem;
   display: flex;
-  flex-direction: column;
+  color: var(--admin-text);
+  align-items: center;
+  justify-content: center;
 }
+
+.details table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
 .bottom {
   margin-top: auto;
 }
 .profile div:nth-child(1) {
   height: 16rem;
   width: 16rem;
-  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -287,7 +296,6 @@
 .profile div:nth-child(2) {
   height: 7rem;
   width: 100%;
-  /* border: 2px solid lawngreen; */
   text-align: center;
   color: var(--admin-text);
 }
@@ -296,31 +304,6 @@
 }
 .profile h1 {
   font-size: 3rem;
-}
-
-.dob,
-.email,
-.phone,
-.username {
-  height: 5rem;
-  display: flex;
-  flex-direction: row;
-}
-
-.username div,
-.dob div,
-.email div,
-.phone div {
-  width: 50%;
-  padding: 1rem;
-  color: var(--admin-text);
-  font-size: 1.6rem;
-}
-.username div:nth-child(2),
-.dob div:nth-child(2),
-.email div:nth-child(2),
-.phone div:nth-child(2) {
-  text-align: right;
 }
 
 .bottom div:nth-child(1),

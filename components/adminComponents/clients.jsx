@@ -1,7 +1,15 @@
+import { useState } from "react";
 import moment from "moment";
 import styles from "../../styles/adminDashboard/invoices.module.css";
 
 const Payments = ({ clientsData }) => {
+  const [modal, setModal] = useState(false);
+
+  const handleModal = () => {
+    console.log("Entered");
+    setModal((prev) => !prev);
+  };
+
   return (
     <div className={styles.invoices}>
       <fieldset>
@@ -32,8 +40,14 @@ const Payments = ({ clientsData }) => {
               })}
             </datalist>
           </div>
-          <div className={styles.btn}>
+          <div className={styles.btn} onClick={handleModal}>
             <i className="fas fa-search"></i> &nbsp;&nbsp;SEARCH
+          </div>
+          <div className={`${styles.modal} ${modal ? styles.modalOn : ""}`}>
+            <div className={styles.close} onClick={handleModal}>
+              X
+            </div>
+            <div className={styles.modalIn}></div>
           </div>
         </div>
       </fieldset>
