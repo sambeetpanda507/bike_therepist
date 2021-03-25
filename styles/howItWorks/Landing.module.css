@@ -82,7 +82,6 @@
   width: 47%;
 }
 .feature1 .type1:nth-child(odd) {
-  align-items: flex-end;
   justify-content: flex-end;
 }
 .feature1 .type1:nth-child(even) {

@@ -410,7 +410,7 @@ const UserDetails = () => {
               name="note"
               id="note"
               cols="30"
-              rows="10"
+              rows="5"
               onChange={(e) => {
                 dispatch({
                   type: ACTIONS.note,
