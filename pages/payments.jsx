@@ -1,10 +1,11 @@
 import Head from "next/head";
 import SidePanel from "../components/adminComponents/SidePanel";
 import Payments from "../components/adminComponents/payments";
+import axios from "axios";
 import { parseCookies } from "nookies";
 import styles from "../styles/adminDashboard/sidepanel.module.css";
 
-const adminDashBoard = ({ paymentData }) => {
+const adminDashBoard = ({ paymentData, adminRes }) => {
   return (
     <section id="dashboard">
       <Head>
@@ -15,7 +16,7 @@ const adminDashBoard = ({ paymentData }) => {
         <title>Payments</title>
       </Head>
       <div className={styles.main}>
-        <SidePanel />
+        <SidePanel adminRes={adminRes} />
         <Payments paymentData={paymentData} />
       </div>
     </section>
@@ -40,8 +41,15 @@ export async function getServerSideProps(context) {
   });
 
   const paymentData = await paymentRes.json();
+
+  const admin = await axios({
+    url: "http://localhost:8080/api/get-user",
+    headers: context.req ? { cookie: context.req.headers.cookie } : undefined,
+  });
+
+  const adminRes = admin.data;
   return {
-    props: { paymentData },
+    props: { paymentData, adminRes },
   };
 }
 

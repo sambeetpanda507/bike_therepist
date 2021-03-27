@@ -11,7 +11,7 @@ const Payments = ({ paymentData }) => {
         </div>
       </div>
       <div className={styles.search}>
-        <div className={styles.wrapper}>
+        {/* <div className={styles.wrapper}>
           <input type="text" list="client-id" required />
           <label>Client ID</label>
           <datalist id="client-id">
@@ -19,7 +19,7 @@ const Payments = ({ paymentData }) => {
               return <option value={payment._id} key={index} />;
             })}
           </datalist>
-        </div>
+        </div> */}
         <div className={styles.wrapper}>
           <input type="text" list="clientEmail" required />
           <label>Name</label>
@@ -30,7 +30,7 @@ const Payments = ({ paymentData }) => {
           </datalist>
         </div>
         <div className={styles.btn}>
-          <i class="fas fa-search"></i> &nbsp;&nbsp;SEARCH
+          <i className="fas fa-search"></i> &nbsp;&nbsp;SEARCH
         </div>
       </div>
       <div className={styles.table3}>

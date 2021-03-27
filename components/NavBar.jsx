@@ -25,9 +25,9 @@ const NavBar = () => {
       .then((res) => {
         setUserData(res.data.isLoggedin);
         if (res.data.isLoggedin) {
-          const audio = new Audio("/alert.mp3");
+          // const audio = new Audio("/alert.mp3");
+          // audio.play();
           socket.on("notification", (payload) => {
-            audio.play();
             alert(payload.msg);
           });
         }

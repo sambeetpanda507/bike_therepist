@@ -7,16 +7,16 @@ import { storage } from "../../firebase";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 import { SideContext } from "./SideContext";
 
-const SidePanel = () => {
+const SidePanel = ({ adminRes }) => {
   const [hide, setHide] = useContext(SideContext);
   const [userData, setUserData] = useState(false);
-  const [name, setName] = useState("Admin");
+  const [name, setName] = useState(adminRes.name.toString());
   const [isReadOnly, setReadOnly] = useState(false);
-  const [date, setDate] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState(adminRes.dob.toString());
+  const [email, setEmail] = useState(adminRes.email.toString());
+  const [phone, setPhone] = useState(adminRes.phone.toString());
   const [showBtn, setShowBtn] = useState(false);
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState(adminRes.profileImage);
   const [progress, setProgress] = useState(0);
   const [imgUrl, setImgUrl] = useState("");
   const router = useRouter();
@@ -41,22 +41,18 @@ const SidePanel = () => {
   });
 
   useEffect(() => {
-    btnShowHandler();
-  }, [name, email, phone, date, img]);
-
-  const btnShowHandler = () => {
     if (
-      name !== "Admin" ||
-      phone !== "" ||
-      email !== "" ||
-      date !== "" ||
-      img !== null
+      name !== adminRes.name ||
+      phone !== adminRes.phone.toString() ||
+      email !== adminRes.email ||
+      date !== adminRes.dob ||
+      img !== adminRes.profileImage
     ) {
       setShowBtn(true);
     } else {
       setShowBtn(false);
     }
-  };
+  }, [name, email, phone, date, img]);
 
   const handleLogout = () => {
     if (userData) {
@@ -139,7 +135,8 @@ const SidePanel = () => {
                   withCredentials: true,
                 })
                   .then((res) => {
-                    console.log("db response:", res);
+                    alert("profile picture changed");
+                    location.reload();
                   })
                   .catch((err) => console.log(err));
               }
@@ -147,6 +144,24 @@ const SidePanel = () => {
             .catch((err) => console.log(err));
         }
       );
+    } else {
+      axios({
+        url: "http://localhost:8080/api/update-details",
+        method: "POST",
+        data: {
+          email,
+          name,
+          date,
+          phone,
+        },
+        withCredentials: true,
+      })
+        .then((res) => {
+          if (res.status === 201) {
+            window.alert(res.data.msg);
+          }
+        })
+        .catch((err) => console.log(err));
     }
   }
 
@@ -173,6 +188,7 @@ const SidePanel = () => {
                   type="file"
                   id="profile-picture"
                   onChange={(e) => {
+                    setImgUrl(URL.createObjectURL(e.target.files[0]));
                     setImg(e.target.files[0]);
                   }}
                 />

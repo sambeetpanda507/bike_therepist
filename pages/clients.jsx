@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { parseCookies } from "nookies";
+import axios from "axios";
 import SidePanel from "../components/adminComponents/SidePanel";
 import Clients from "../components/adminComponents/clients";
 import styles from "../styles/adminDashboard/sidepanel.module.css";
@@ -15,7 +16,7 @@ const adminDashBoard = (props) => {
         <title>Clients</title>
       </Head>
       <div className={styles.main}>
-        <SidePanel />
+        <SidePanel adminRes={props.adminRes} />
         <Clients clientsData={props.data} />
       </div>
     </section>
@@ -39,8 +40,26 @@ export async function getServerSideProps(context) {
     credentials: "same-origin",
   });
   const data = await res.json();
+
+  // const admin = await fetch(
+  //   `http://localhost:8080/api/get-user?token=${cookies.jwt}`,
+  //   {
+  //     method: "GET",
+  //     mode: "cors",
+  //     credentials: "include",
+  //   }
+  // );
+
+  const admin = await axios({
+    url: "http://localhost:8080/api/get-user",
+    method: "GET",
+    headers: context.req ? { cookie: context.req.headers.cookie } : undefined,
+  });
+
+  const adminRes = admin.data;
+
   return {
-    props: { data },
+    props: { data, adminRes },
   };
 }
 
