@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import Link from "next/link";
 import moment from "moment";
 import { SideContext } from "./SideContext";
+import Barchart from "./Barchart";
 import Status from "./Status";
 import styles from "../../styles/adminDashboard/dashboard.module.css";
 
@@ -146,7 +147,9 @@ const DashBoard = (props) => {
             <p>Total Revenue</p>
           </div>
 
-          <div className={styles.table1}></div>
+          <div className={styles.table1}>
+            <Barchart paymentData={props.paymentData} />
+          </div>
         </div>
 
         <div className={styles.t2}>
