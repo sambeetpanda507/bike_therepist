@@ -1,13 +1,46 @@
 import { useState } from "react";
 import moment from "moment";
+import axios from "axios";
 import styles from "../../styles/adminDashboard/invoices.module.css";
 
 const Payments = ({ paymentData }) => {
   const [modal, setModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [paymentModalData, setPaymentModalData] = useState(null);
+  const [customerModalData, setCustomerModalData] = useState(null);
+  const handleModalOpen = () => {
+    if (!email || email.length === 0) {
+      return alert("please enter email id");
+    }
+    axios({
+      url: `http://localhost:8080/api/payment-details?email=${email}`,
+      method: "GET",
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setPaymentModalData(res.data);
+          axios({
+            url: `http://localhost:8080/api/customer-details?customerId=${res.data.customerId}`,
+            method: "GET",
+          })
+            .then((data) => {
+              if ((data.status = 200)) {
+                setCustomerModalData(data.data);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      })
+      .catch((err) => console.log(err));
+    setModal(true);
+  };
 
-  const handleModal = () => {
-    console.log("Entered");
-    setModal((prev) => !prev);
+  const handleModalClose = () => {
+    setCustomerModalData(null);
+    setPaymentModalData(null);
+    setModal(false);
   };
 
   return (
@@ -19,17 +52,16 @@ const Payments = ({ paymentData }) => {
         </div>
       </div>
       <div className={styles.search}>
-        {/* <div className={styles.wrapper}>
-          <input type="text" list="client-id" required />
-          <label>Client ID</label>
-          <datalist id="client-id">
-            {paymentData.map((payment, index) => {
-              return <option value={payment._id} key={index} />;
-            })}
-          </datalist>
-        </div> */}
         <div className={styles.wrapper}>
-          <input type="text" list="clientEmail" required />
+          <input
+            type="text"
+            list="clientEmail"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            required
+          />
           <label>Email</label>
           <datalist id="clientEmail">
             {paymentData.map((payment, index) => {
@@ -37,27 +69,29 @@ const Payments = ({ paymentData }) => {
             })}
           </datalist>
         </div>
-        <div className={styles.btn} onClick={handleModal}>
+        <div className={styles.btn} onClick={handleModalOpen}>
           <i className="fas fa-search"></i> &nbsp;&nbsp;SEARCH
         </div>
         <div className={`${styles.modal} ${modal ? styles.modalOn : ""}`}>
-          <div className={styles.close} onClick={handleModal}>
+          <div className={styles.close} onClick={handleModalClose}>
             X
           </div>
           <div className={styles.modalIn}>
             <div className={styles.invo}>
               <div>
-                <i class="fas fa-tools"></i>
+                <i className="fas fa-tools"></i>
                 <h1>
                   <span>Bike</span>Therapist
                 </h1>
               </div>
               <div>
                 <h1>Client ID</h1>
-                <p>#09sa87as656hsjchj82r3</p>
+                <p>
+                  {customerModalData ? customerModalData.customer._id : "N/A"}
+                </p>
                 <h3>
                   <span>Date : </span>
-                  {Date().toString().split("G")[0]}
+                  {moment(Date.now()).format("MMMM Do YYYY")}
                 </h3>
               </div>
             </div>
@@ -66,40 +100,68 @@ const Payments = ({ paymentData }) => {
               <div>
                 <h2>User Details</h2>
                 <p>
-                  <span>Name : </span>Tarun Koli
+                  <span>Name : </span>
+                  {customerModalData ? customerModalData.customer.name : "N/A"}
                 </p>
                 <p>
-                  <span>Email : </span>abc@gmail.com
+                  <span>Email : </span>
+                  {customerModalData ? customerModalData.customer.email : "N/A"}
                 </p>
                 <p>
-                  <span>Phone : </span>9876543210
+                  <span>Phone : </span>
+                  {customerModalData ? customerModalData.customer.phone : "N/A"}
                 </p>
                 <p>
-                  <span>Dob : </span>02-june-2001
+                  <span>Dob : </span>
+                  {moment(
+                    customerModalData ? customerModalData.customer.dob : "N/A"
+                  ).format("MMMM Do YYYY")}
                 </p>
                 <p>
-                  <span>Address : </span>L-1 7/433,Sangam Vihar,New Delhi-
-                  110080,L-1 7/433,Sangam Vihar,L-1 7/433,Sangam Vihar,New
-                  Delhi- 110080,L-1 7/433,Sangam Vihar
+                  <span>Address : </span>
+                  {`${
+                    customerModalData
+                      ? customerModalData.customer.houseNumber
+                      : "N/A"
+                  }, ${
+                    customerModalData
+                      ? customerModalData.customer.streetNumber
+                      : "N/A"
+                  }, ${
+                    customerModalData ? customerModalData.customer.city : "N/A"
+                  }, ${
+                    customerModalData ? customerModalData.customer.state : "N/A"
+                  }, ${
+                    customerModalData
+                      ? customerModalData.customer.postalCode
+                      : "N/A"
+                  }`}
                 </p>
               </div>
 
               <div>
                 <h2>Payment Details</h2>
                 <p>
-                  <span>Amount Paid : </span>Rs.560
+                  <span>Amount Paid : </span> ₹
+                  {paymentModalData
+                    ? parseInt(paymentModalData.amount) / 100
+                    : "N/A"}
                 </p>
                 <p>
-                  <span>BankName : </span>State Bank Of India
+                  <span>State : </span>
+                  {customerModalData
+                    ? customerModalData.customer.state.toUpperCase()
+                    : "N/A"}
                 </p>
                 <p>
-                  <span>State : </span>New delhi
+                  <span>Type : </span>
+                  {paymentModalData
+                    ? paymentModalData.type.toUpperCase()
+                    : "N/A"}
                 </p>
                 <p>
-                  <span>Type : </span>UPI
-                </p>
-                <p>
-                  <span>PaymentID : </span>#343tfe5yg32rffer45
+                  <span>PaymentID : </span>
+                  {paymentModalData ? paymentModalData.paymentId : "N/A"}
                 </p>
               </div>
             </div>
@@ -113,10 +175,26 @@ const Payments = ({ paymentData }) => {
                 <p>Booking Time</p>
               </div>
               <div>
-                <p>Yamaha</p>
-                <p>KTM ,Model 1.2</p>
-                <p>12 March 2021</p>
-                <p>3:00 PM</p>
+                <p>
+                  {customerModalData ? customerModalData.customer.brand : "N/A"}
+                </p>
+                <p>
+                  {customerModalData
+                    ? customerModalData.customer.variant
+                    : "N/A"}
+                </p>
+                <p>
+                  {customerModalData
+                    ? moment(customerModalData.customer.bookingDate).format(
+                        "MMMM Do YYYY"
+                      )
+                    : "N/A"}
+                </p>
+                <p>
+                  {customerModalData
+                    ? moment(customerModalData.customer.createdAt).format("LTS")
+                    : "N/A"}
+                </p>
               </div>
             </div>
           </div>

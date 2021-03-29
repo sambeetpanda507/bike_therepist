@@ -1,13 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import moment from "moment";
 import styles from "../../styles/adminDashboard/invoices.module.css";
 
 const Payments = ({ clientsData }) => {
   const [modal, setModal] = useState(false);
+  const [clientId, setClientId] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
+  const [modalData, setModalData] = useState(null);
 
-  const handleModal = () => {
-    console.log("Entered");
-    setModal((prev) => !prev);
+  useEffect(() => {
+    if (clientId.length > 0) {
+      const client = clientsData.find((value, index, arr) => {
+        return value._id === clientId;
+      });
+      if (client) setClientEmail(client.email);
+    }
+    if (clientEmail.length > 0 && !clientId.length > 0) {
+      const client = clientsData.find((value, index, arr) => {
+        return value.email === clientEmail;
+      });
+      if (client) setClientId(client._id);
+    }
+  }, [clientId, clientEmail]);
+
+  const handleModalOpen = () => {
+    let client;
+    if (clientId.length > 0 && clientEmail.length > 0) {
+      client = clientsData.find((value, index, arr) => {
+        return value._id === clientId;
+      });
+      if (client) setModalData(client);
+    } else {
+      return alert("please fill the required field");
+    }
+    setModal(true);
+  };
+
+  const handleModalClose = () => {
+    setModal(false);
+    setModalData(null);
   };
 
   return (
@@ -23,7 +54,16 @@ const Payments = ({ clientsData }) => {
         </div>
         <div className={styles.search}>
           <div className={styles.wrapper}>
-            <input type="text" list="clientId" required />
+            <input
+              type="text"
+              list="clientId"
+              value={clientId}
+              onChange={(e) => {
+                setClientEmail("");
+                setClientId(e.target.value);
+              }}
+              required
+            />
             <label>Client ID</label>
             <datalist id="clientId">
               {clientsData.map((client, index) => {
@@ -32,37 +72,46 @@ const Payments = ({ clientsData }) => {
             </datalist>
           </div>
           <div className={styles.wrapper}>
-            <input type="text" list="clientName" required />
-            <label>Name</label>
-            <datalist id="clientName">
+            <input
+              type="text"
+              list="clientEmail"
+              value={clientEmail}
+              onChange={(e) => {
+                setClientId("");
+                setClientEmail(e.target.value);
+              }}
+              required
+            />
+            <label>Email</label>
+            <datalist id="clientEmail">
               {clientsData.map((client, index) => {
-                return <option value={client.name} key={index} />;
+                return <option value={client.email} key={index} />;
               })}
             </datalist>
           </div>
 
-          <div className={styles.btn} onClick={handleModal}>
+          <div className={styles.btn} onClick={handleModalOpen}>
             <i className="fas fa-search"></i> &nbsp;&nbsp;SEARCH
           </div>
 
           <div className={`${styles.modal} ${modal ? styles.modalOn : ""}`}>
-            <div className={styles.close} onClick={handleModal}>
+            <div className={styles.close} onClick={handleModalClose}>
               X
             </div>
             <div className={styles.modalIn}>
               <div className={styles.invo}>
                 <div>
-                  <i class="fas fa-tools"></i>
+                  <i className="fas fa-tools"></i>
                   <h1>
                     <span>Bike</span>Therapist
                   </h1>
                 </div>
                 <div>
                   <h1>Client ID</h1>
-                  <p>#09sa87as656hsjchj82r3</p>
+                  <p>{modalData ? modalData._id : "N/A"}</p>
                   <h3>
                     <span>Date : </span>
-                    {Date().toString().split("G")[0]}
+                    {moment(Date.now()).format("MMMM Do YYYY")}
                   </h3>
                 </div>
               </div>
@@ -71,40 +120,30 @@ const Payments = ({ clientsData }) => {
                 <div>
                   <h2>User Details</h2>
                   <p>
-                    <span>Name : </span>Tarun Koli
+                    <span>Name : </span>
+                    {modalData ? modalData.name : "N/A"}
                   </p>
                   <p>
-                    <span>Email : </span>abc@gmail.com
+                    <span>Email : </span>
+                    {modalData ? modalData.email : "N/A"}
                   </p>
                   <p>
-                    <span>Phone : </span>9876543210
+                    <span>Phone : </span>
+                    {modalData ? modalData.phone : "N/A"}
                   </p>
                   <p>
-                    <span>Dob : </span>02-june-2001
+                    <span>Dob : </span>
+                    {modalData
+                      ? moment(modalData.dob).format("MMMM Do YYYY")
+                      : "N/A"}
                   </p>
                   <p>
-                    <span>Address : </span>L-1 7/433,Sangam Vihar,New Delhi-
-                    110080,L-1 7/433,Sangam Vihar,L-1 7/433,Sangam Vihar,New
-                    Delhi- 110080,L-1 7/433,Sangam Vihar
-                  </p>
-                </div>
-
-                <div>
-                  <h2>Payment Details</h2>
-                  <p>
-                    <span>Amount Paid : </span>Rs.560
-                  </p>
-                  <p>
-                    <span>BankName : </span>State Bank Of India
-                  </p>
-                  <p>
-                    <span>State : </span>New delhi
-                  </p>
-                  <p>
-                    <span>Type : </span>UPI
-                  </p>
-                  <p>
-                    <span>PaymentID : </span>#343tfe5yg32rffer45
+                    <span>Address : </span>
+                    {`${modalData ? modalData.houseNumber : "N/A"}, ${
+                      modalData ? modalData.streetNumber : "N/A"
+                    }, ${modalData ? modalData.city : "N/A"}, ${
+                      modalData ? modalData.state : "N/A"
+                    }, ${modalData ? modalData.postalCode : "N/A"}`}
                   </p>
                 </div>
               </div>
@@ -118,10 +157,18 @@ const Payments = ({ clientsData }) => {
                   <p>Booking Time</p>
                 </div>
                 <div>
-                  <p>Yamaha</p>
-                  <p>KTM ,Model 1.2</p>
-                  <p>12 March 2021</p>
-                  <p>3:00 PM</p>
+                  <p>{modalData ? modalData.brand : "N/A"}</p>
+                  <p>{modalData ? modalData.state.toUpperCase() : "N/A"}</p>
+                  <p>
+                    {modalData
+                      ? moment(modalData.bookingDate).format("MMMM Do YYYY")
+                      : "N/A"}
+                  </p>
+                  <p>
+                    {modalData
+                      ? moment(modalData.createdAt).format("LTS")
+                      : "N/A"}
+                  </p>
                 </div>
               </div>
             </div>
