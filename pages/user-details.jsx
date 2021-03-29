@@ -110,6 +110,7 @@ const UserDetails = () => {
                   amount: 100,
                   receiptId: response.razorpay_payment_id,
                 },
+                withCredentials: true,
                 responseType: "arraybuffer",
               })
                 .then((res) => {
