@@ -1,10 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
+import Aos from 'aos';
 import { BookingContext, ACTIONS } from "../BookingContext";
 import bookStyle from "../../styles/BookService.module.css";
+import 'aos/dist/aos.css'
 const BookService = () => {
   const [state, dispatch] = useContext(BookingContext);
   const router = useRouter();
+  useEffect(()=>{
+    Aos.init({duration:2000})
+  },[])
   const handleNext = () => {
     if (
       state.brand !== "[--select brand--]" &&
@@ -21,11 +26,11 @@ const BookService = () => {
   return (
     <section className={bookStyle.book} id="book">
       <div className={bookStyle.container}>
-        <h1 className={bookStyle.primaryHeading}>
+        <h1 className={bookStyle.primaryHeading} data-aos="fade-in">
           you can book a <span className={bookStyle.serviceFont}>service </span>
           here
         </h1>
-        <div className={bookStyle.progressSection}>
+        <div className={bookStyle.progressSection} data-aos="flip-left">
           <div className={bookStyle.progressContainer}>
             <label htmlFor="brand">1. brand</label>
             <div className={bookStyle.progressBarWrapper}>
@@ -51,11 +56,11 @@ const BookService = () => {
             </div>
           </div>
         </div>
-        <h1 className={bookStyle.secondayHeading}>
+        <h1 className={bookStyle.secondayHeading} data-aos="flip-up">
           your <span className={bookStyle.textWarning}>two-wheeler</span>{" "}
           details
         </h1>
-        <div className={bookStyle.detailsSection}>
+        <div className={bookStyle.detailsSection} data-aos="flip-right">
           <div className={bookStyle.detailsContainer}>
             <label htmlFor="vehicle">velhicle brand</label>
             <select
