@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from "../styles/Footer.module.css";
 
 const cardData = [
@@ -50,7 +51,8 @@ const Footer = () => {
       </div>
       <div className={style.footerContent}>
         <h1 className={style.why}>
-          why <span className={style.bike}>bike</span>{""}
+          why <span className={style.bike}>bike</span>
+          {""}
           <span className={style.therapist}>Theparist</span> ?
         </h1>
         <div className={style.footerCardContainer}>
@@ -76,7 +78,7 @@ const Footer = () => {
               <img src="/banner-small-circle.png" alt="small circle" />
             </div>
             <div className={style.bannerBigCircle}>
-              <img src="/banner-big-circle.png" alt="big circle" />
+              <img src="/banner-big-circle.webp" alt="big circle" />
             </div>
             <div className={style.bannerLeft}>
               <h3>let's get started!</h3>
@@ -85,7 +87,9 @@ const Footer = () => {
               </p>
             </div>
             <div className={style.bannerRight}>
-              <button>book here</button>
+              <Link href="/book-service">
+                <button>book here</button>
+              </Link>
             </div>
           </div>
         </div>

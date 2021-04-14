@@ -15,6 +15,11 @@
   --text-danger: red;
   --text-warning: #fdd600;
   --text-white: #fff;
+  --admin-bg: #23272b;
+  --admin-text: rgba(187, 196, 204, 1);
+  --admin-box: rgba(22, 25, 28, 1);
+  --admin-side: rgb(22, 21, 21);
+  --admin-border: rgba(46, 56, 64, 1);
 }
 
 html {

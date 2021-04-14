@@ -11,7 +11,7 @@ const Worker = () => {
             ${style.right}`}
             >
               <img
-                src="/mechanic.png"
+                src="/mechanic.webp"
                 alt="engine image"
                 className={`img-fluid w-80 img-thumbnail`}
               />

@@ -28,7 +28,7 @@ const Welding = () => {
             ${style.right}`}
             >
               <img
-                src="/welding.png"
+                src="/welding.webp"
                 alt="engine image"
                 className={`img-fluid w-75`}
               />

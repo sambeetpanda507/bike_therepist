@@ -84,6 +84,8 @@
   height: 3.5rem;
   text-transform: capitalize;
   border-radius: 5px;
+  font-size: 2rem;
+  height: 3.5rem;
 }
 
 .nextBtn {
@@ -102,6 +104,33 @@
   font-size: 1.6rem;
   cursor: pointer;
   font-weight: 600;
+}
+
+.calender {
+  height: 100% !important;
+  border-radius: 1rem;
+}
+.calender > div:nth-child(2) {
+  height: calc(100% - 7rem) !important;
+}
+
+.calender > div:nth-child(2) > div {
+  height: 100% !important;
+}
+
+.calender > div:nth-child(2) > div > div {
+  height: 100% !important;
+  align-items: flex-start !important;
+}
+.calender > div:nth-child(2) > div > div > div {
+  height: 100% !important;
+}
+.calender > div:nth-child(2) > div > div > div {
+  height: 100% !important;
+}
+
+.calender > div:nth-child(2) > div > div > div > div:nth-child(2) {
+  height: 90% !important;
 }
 
 /* /////media queries//// */

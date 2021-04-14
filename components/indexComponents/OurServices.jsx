@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import style from "../../styles/OurServices.module.css";
 
 const serviceData = [
@@ -28,16 +31,23 @@ const serviceData = [
 ];
 
 const OurServices = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <section className={style.ourServices} id="ourServices">
       <div className={style.container}>
-        <h1 className={style.headingPrimary}>
+        <h1 className={style.headingPrimary} data-aos="fade-up">
           <span className={style.bgWarning}>our</span> services
         </h1>
         <div className={style.serviceSection}>
           {serviceData.map((val, index) => {
             return (
-              <div className={style.serviceContainer} key={val.id}>
+              <div
+                className={style.serviceContainer}
+                key={val.id}
+                data-aos="zoom-in"
+              >
                 <div className={style.iconImg}>
                   <img src={val.icon} alt="service icont 1" />
                 </div>

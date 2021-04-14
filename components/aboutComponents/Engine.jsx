@@ -35,7 +35,7 @@ const Engine = () => {
             ${style.right}`}
             >
               <img
-                src="/engine.png"
+                src="/engine.webp"
                 alt="engine image"
                 className={`img-fluid w-90 img-thumbnail`}
               />
